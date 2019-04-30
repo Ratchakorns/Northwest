@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Northwest3x3(title: 'Flutter Demo Home Page'),
+      home: Northwest3x3(title: 'NorthWest'),
     );
   }
 }
