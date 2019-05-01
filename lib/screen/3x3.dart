@@ -31,6 +31,8 @@ class _Northwest3x3State extends State<Northwest3x3> {
   TextEditingController _demandbController = new TextEditingController();
   TextEditingController _demandcController = new TextEditingController();
 
+  bool isOpenTable = false;
+
   void _incrementCounter() {
     int supplya = int.parse(_supplyaController.text);
     int supplyb = int.parse(_supplybController.text);
@@ -184,6 +186,10 @@ class _Northwest3x3State extends State<Northwest3x3> {
         }
       });
     }
+
+    setState(() {
+     isOpenTable = true ;
+    });
   }
 
   @override
@@ -316,139 +322,147 @@ class _Northwest3x3State extends State<Northwest3x3> {
                     onPressed: _incrementCounter,
                   ),
                 ),
-                Padding(
-                  padding: EdgeInsets.only(top: 20),
-                  child: Text(
-                    'ตาราง',
-                    style: TextStyle(fontFamily: 'PromptBold'),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.all(10),
-                  child: Table(
-                      defaultVerticalAlignment:
-                          TableCellVerticalAlignment.middle,
-                      border: TableBorder.all(color: Colors.black),
-                      children: [
-                        TableRow(children: [
-                          Padding(
-                            padding: EdgeInsets.only(top: 10, bottom: 10),
-                            child: Text(
-                              'Company',
-                              textAlign: TextAlign.center,
-                              style: TextStyle(fontFamily: 'PromptBold'),
-                            ),
-                          ),
-                          Text(
-                            'a',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(fontFamily: 'PromptBold'),
-                          ),
-                          Text(
-                            'b',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(fontFamily: 'PromptBold'),
-                          ),
-                          Text(
-                            'c',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(fontFamily: 'PromptBold'),
-                          ),
-                          Text(
-                            'supply',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(fontFamily: 'PromptBold'),
-                          ),
-                        ]),
-                        TableRow(children: [
-                          Padding(
-                            padding: EdgeInsets.only(top: 10, bottom: 10),
-                            child: Text(
-                              'A',
-                              textAlign: TextAlign.center,
-                              style: TextStyle(fontFamily: 'PromptBold'),
-                            ),
-                          ),
-                          Text("$_mattrix11", textAlign: TextAlign.center),
-                          Text("$_mattrix12", textAlign: TextAlign.center),
-                          Text("$_mattrix13", textAlign: TextAlign.center),
-                          Text(
-                            "$_supplya",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(fontFamily: 'PromptBold'),
-                          ),
-                        ]),
-                        TableRow(children: [
-                          Padding(
-                            padding: EdgeInsets.only(top: 10, bottom: 10),
-                            child: Text(
-                              'B',
-                              textAlign: TextAlign.center,
-                              style: TextStyle(fontFamily: 'PromptBold'),
-                            ),
-                          ),
-                          Text("$_mattrix21", textAlign: TextAlign.center),
-                          Text("$_mattrix22", textAlign: TextAlign.center),
-                          Text("$_mattrix23", textAlign: TextAlign.center),
-                          Text(
-                            "$_supplyb",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(fontFamily: 'PromptBold'),
-                          ),
-                        ]),
-                        TableRow(children: [
-                          Padding(
-                            padding: EdgeInsets.only(top: 10, bottom: 10),
-                            child: Text(
-                              'C',
-                              textAlign: TextAlign.center,
-                              style: TextStyle(fontFamily: 'PromptBold'),
-                            ),
-                          ),
-                          Text("$_mattrix31", textAlign: TextAlign.center),
-                          Text("$_mattrix32", textAlign: TextAlign.center),
-                          Text("$_mattrix33", textAlign: TextAlign.center),
-                          Text(
-                            "$_supplyc",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(fontFamily: 'PromptBold'),
-                          ),
-                        ]),
-                        TableRow(children: [
-                          Padding(
-                            padding: EdgeInsets.only(top: 10, bottom: 10),
-                            child: Text(
-                              'Demand',
-                              textAlign: TextAlign.center,
-                              style: TextStyle(fontFamily: 'PromptBold'),
-                            ),
-                          ),
-                          Text(
-                            "$_demanda",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(fontFamily: 'PromptBold'),
-                          ),
-                          Text(
-                            "$_demandb",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(fontFamily: 'PromptBold'),
-                          ),
-                          Text(
-                            "$_demandc",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(fontFamily: 'PromptBold'),
-                          ),
-                          Text(
-                            'supply',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(fontFamily: 'PromptBold'),
-                          ),
-                        ]),
-                      ]),
-                )
+                isOpenTable ? table() : Container()
               ],
             ),
           )),
         ));
+  }
+
+  Widget table(){
+    return Column(
+      children: <Widget>[
+        Padding(
+      padding: EdgeInsets.only(top: 20),
+      child: Text(
+        'ตาราง',
+        style: TextStyle(fontFamily: 'PromptBold'),
+      ),
+    ),
+    Padding(
+      padding: EdgeInsets.all(10),
+      child: Table(
+          defaultVerticalAlignment:
+              TableCellVerticalAlignment.middle,
+          border: TableBorder.all(color: Colors.black),
+          children: [
+            TableRow(children: [
+              Padding(
+                padding: EdgeInsets.only(top: 10, bottom: 10),
+                child: Text(
+                  'Company',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontFamily: 'PromptBold'),
+                ),
+              ),
+              Text(
+                'a',
+                textAlign: TextAlign.center,
+                style: TextStyle(fontFamily: 'PromptBold'),
+              ),
+              Text(
+                'b',
+                textAlign: TextAlign.center,
+                style: TextStyle(fontFamily: 'PromptBold'),
+              ),
+              Text(
+                'c',
+                textAlign: TextAlign.center,
+                style: TextStyle(fontFamily: 'PromptBold'),
+              ),
+              Text(
+                'supply',
+                textAlign: TextAlign.center,
+                style: TextStyle(fontFamily: 'PromptBold'),
+              ),
+            ]),
+            TableRow(children: [
+              Padding(
+                padding: EdgeInsets.only(top: 10, bottom: 10),
+                child: Text(
+                  'A',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontFamily: 'PromptBold'),
+                ),
+              ),
+              Text("$_mattrix11", textAlign: TextAlign.center),
+              Text("$_mattrix12", textAlign: TextAlign.center),
+              Text("$_mattrix13", textAlign: TextAlign.center),
+              Text(
+                "$_supplya",
+                textAlign: TextAlign.center,
+                style: TextStyle(fontFamily: 'PromptBold'),
+              ),
+            ]),
+            TableRow(children: [
+              Padding(
+                padding: EdgeInsets.only(top: 10, bottom: 10),
+                child: Text(
+                  'B',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontFamily: 'PromptBold'),
+                ),
+              ),
+              Text("$_mattrix21", textAlign: TextAlign.center),
+              Text("$_mattrix22", textAlign: TextAlign.center),
+              Text("$_mattrix23", textAlign: TextAlign.center),
+              Text(
+                "$_supplyb",
+                textAlign: TextAlign.center,
+                style: TextStyle(fontFamily: 'PromptBold'),
+              ),
+            ]),
+            TableRow(children: [
+              Padding(
+                padding: EdgeInsets.only(top: 10, bottom: 10),
+                child: Text(
+                  'C',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontFamily: 'PromptBold'),
+                ),
+              ),
+              Text("$_mattrix31", textAlign: TextAlign.center),
+              Text("$_mattrix32", textAlign: TextAlign.center),
+              Text("$_mattrix33", textAlign: TextAlign.center),
+              Text(
+                "$_supplyc",
+                textAlign: TextAlign.center,
+                style: TextStyle(fontFamily: 'PromptBold'),
+              ),
+            ]),
+            TableRow(children: [
+              Padding(
+                padding: EdgeInsets.only(top: 10, bottom: 10),
+                child: Text(
+                  'Demand',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontFamily: 'PromptBold'),
+                ),
+              ),
+              Text(
+                "$_demanda",
+                textAlign: TextAlign.center,
+                style: TextStyle(fontFamily: 'PromptBold'),
+              ),
+              Text(
+                "$_demandb",
+                textAlign: TextAlign.center,
+                style: TextStyle(fontFamily: 'PromptBold'),
+              ),
+              Text(
+                "$_demandc",
+                textAlign: TextAlign.center,
+                style: TextStyle(fontFamily: 'PromptBold'),
+              ),
+              Text(
+                'supply',
+                textAlign: TextAlign.center,
+                style: TextStyle(fontFamily: 'PromptBold'),
+              ),
+            ]),
+          ]),
+        )
+      ],
+    );
   }
 }
