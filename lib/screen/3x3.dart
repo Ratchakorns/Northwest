@@ -184,168 +184,271 @@ class _Northwest3x3State extends State<Northwest3x3> {
         }
       });
     }
-
-    print(_mattrix33);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Container(
-          child: SingleChildScrollView(
-        child: Column(
-          children: <Widget>[
-            Padding(
-              padding: EdgeInsets.only(top: 20, bottom: 20),
-              child: Text('Supply'),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: <Widget>[
-                Text('A'),
-                Text('B'),
-                Text('C'),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: <Widget>[
-                Container(
-                  width: 100,
-                  child: TextField(
-                    controller: _supplyaController,
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-                Container(
-                  width: 100,
-                  child: TextField(
-                    controller: _supplybController,
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-                Container(
-                  width: 100,
-                  child: TextField(
-                    controller: _supplycController,
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-              ],
-            ),
-            Padding(
-              padding: EdgeInsets.only(top: 20, bottom: 20),
-              child: Text('Demand'),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: <Widget>[
-                Text('a'),
-                Text('b'),
-                Text('c'),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: <Widget>[
-                Container(
-                  width: 100,
-                  child: TextField(
-                    controller: _demandaController,
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-                Container(
-                  width: 100,
-                  child: TextField(
-                    controller: _demandbController,
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-                Container(
-                  width: 100,
-                  child: TextField(
-                    controller: _demandcController,
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-              ],
-            ),
-            Padding(
-              padding: EdgeInsets.only(top: 20),
-              child: RaisedButton(
-                child: Text('กดเพื่อ สร้างตาราง'),
-                onPressed: _incrementCounter,
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(top: 20),
-              child: Text('ตาราง'),
-            ),
-            Padding(
-              padding: EdgeInsets.all(10),
-              child: Table(
-                  defaultVerticalAlignment: TableCellVerticalAlignment.middle,
-                  border: TableBorder.all(color: Colors.black),
-                  children: [
-                    TableRow(children: [
-                      Padding(
-                        padding: EdgeInsets.only(top: 10, bottom: 10),
-                        child: Text('Company', textAlign: TextAlign.center),
-                      ),
-                      Text('a', textAlign: TextAlign.center),
-                      Text('b', textAlign: TextAlign.center),
-                      Text('c', textAlign: TextAlign.center),
-                      Text('supply', textAlign: TextAlign.center),
-                    ]),
-                    TableRow(children: [
-                      Padding(
-                        padding: EdgeInsets.only(top: 10, bottom: 10),
-                        child: Text('A', textAlign: TextAlign.center),
-                      ),
-                      Text("$_mattrix11", textAlign: TextAlign.center),
-                      Text("$_mattrix12", textAlign: TextAlign.center),
-                      Text("$_mattrix13", textAlign: TextAlign.center),
-                      Text("$_supplya", textAlign: TextAlign.center),
-                    ]),
-                    TableRow(children: [
-                      Padding(
-                        padding: EdgeInsets.only(top: 10, bottom: 10),
-                        child: Text('B', textAlign: TextAlign.center),
-                      ),
-                      Text("$_mattrix21", textAlign: TextAlign.center),
-                      Text("$_mattrix22", textAlign: TextAlign.center),
-                      Text("$_mattrix23", textAlign: TextAlign.center),
-                      Text("$_supplyb", textAlign: TextAlign.center),
-                    ]),
-                    TableRow(children: [
-                      Padding(
-                        padding: EdgeInsets.only(top: 10, bottom: 10),
-                        child: Text('C', textAlign: TextAlign.center),
-                      ),
-                      Text("$_mattrix31", textAlign: TextAlign.center),
-                      Text("$_mattrix32", textAlign: TextAlign.center),
-                      Text("$_mattrix33", textAlign: TextAlign.center),
-                      Text("$_supplyc", textAlign: TextAlign.center),
-                    ]),
-                    TableRow(children: [
-                      Padding(
-                        padding: EdgeInsets.only(top: 10, bottom: 10),
-                        child: Text('Demand', textAlign: TextAlign.center),
-                      ),
-                      Text("$_demanda", textAlign: TextAlign.center),
-                      Text("$_demandb", textAlign: TextAlign.center),
-                      Text("$_demandc", textAlign: TextAlign.center),
-                      Text('supply', textAlign: TextAlign.center),
-                    ]),
-                  ]),
-            )
-          ],
+        appBar: AppBar(
+          title: Text(widget.title),
         ),
-      )),
-    );
+        body: new GestureDetector(
+          onTap: () {
+            FocusScope.of(context).requestFocus(new FocusNode());
+          },
+          child: new Container(
+              child: SingleChildScrollView(
+            child: Column(
+              children: <Widget>[
+                Padding(
+                  padding: EdgeInsets.only(top: 20, bottom: 20),
+                  child: Text(
+                    'Supply',
+                    style: TextStyle(fontFamily: 'PromptBold'),
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: <Widget>[
+                    Text(
+                      'A',
+                      style: TextStyle(fontFamily: 'PromptBold'),
+                    ),
+                    Text(
+                      'B',
+                      style: TextStyle(fontFamily: 'PromptBold'),
+                    ),
+                    Text(
+                      'C',
+                      style: TextStyle(fontFamily: 'PromptBold'),
+                    ),
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: <Widget>[
+                    Container(
+                      width: 100,
+                      child: TextField(
+                        controller: _supplyaController,
+                        textAlign: TextAlign.center,
+                        keyboardType: TextInputType.number,
+                      ),
+                    ),
+                    Container(
+                      width: 100,
+                      child: TextField(
+                        controller: _supplybController,
+                        textAlign: TextAlign.center,
+                        keyboardType: TextInputType.number,
+                      ),
+                    ),
+                    Container(
+                      width: 100,
+                      child: TextField(
+                        controller: _supplycController,
+                        textAlign: TextAlign.center,
+                        keyboardType: TextInputType.number,
+                      ),
+                    ),
+                  ],
+                ),
+                Padding(
+                  padding: EdgeInsets.only(top: 20, bottom: 20),
+                  child: Text(
+                    'Demand',
+                    style: TextStyle(fontFamily: 'PromptBold'),
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: <Widget>[
+                    Text(
+                      'a',
+                      style: TextStyle(fontFamily: 'PromptBold'),
+                    ),
+                    Text(
+                      'b',
+                      style: TextStyle(fontFamily: 'PromptBold'),
+                    ),
+                    Text(
+                      'c',
+                      style: TextStyle(fontFamily: 'PromptBold'),
+                    ),
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: <Widget>[
+                    Container(
+                      width: 100,
+                      child: TextField(
+                        controller: _demandaController,
+                        textAlign: TextAlign.center,
+                        keyboardType: TextInputType.number,
+                      ),
+                    ),
+                    Container(
+                      width: 100,
+                      child: TextField(
+                        controller: _demandbController,
+                        textAlign: TextAlign.center,
+                        keyboardType: TextInputType.number,
+                      ),
+                    ),
+                    Container(
+                      width: 100,
+                      child: TextField(
+                        controller: _demandcController,
+                        textAlign: TextAlign.center,
+                        keyboardType: TextInputType.number,
+                      ),
+                    ),
+                  ],
+                ),
+                Padding(
+                  padding: EdgeInsets.only(top: 20),
+                  child: RaisedButton(
+                    child: Text(
+                      'กดเพื่อสร้างตาราง',
+                      style: TextStyle(fontSize: 24),
+                    ),
+                    onPressed: _incrementCounter,
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(top: 20),
+                  child: Text(
+                    'ตาราง',
+                    style: TextStyle(fontFamily: 'PromptBold'),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(10),
+                  child: Table(
+                      defaultVerticalAlignment:
+                          TableCellVerticalAlignment.middle,
+                      border: TableBorder.all(color: Colors.black),
+                      children: [
+                        TableRow(children: [
+                          Padding(
+                            padding: EdgeInsets.only(top: 10, bottom: 10),
+                            child: Text(
+                              'Company',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(fontFamily: 'PromptBold'),
+                            ),
+                          ),
+                          Text(
+                            'a',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(fontFamily: 'PromptBold'),
+                          ),
+                          Text(
+                            'b',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(fontFamily: 'PromptBold'),
+                          ),
+                          Text(
+                            'c',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(fontFamily: 'PromptBold'),
+                          ),
+                          Text(
+                            'supply',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(fontFamily: 'PromptBold'),
+                          ),
+                        ]),
+                        TableRow(children: [
+                          Padding(
+                            padding: EdgeInsets.only(top: 10, bottom: 10),
+                            child: Text(
+                              'A',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(fontFamily: 'PromptBold'),
+                            ),
+                          ),
+                          Text("$_mattrix11", textAlign: TextAlign.center),
+                          Text("$_mattrix12", textAlign: TextAlign.center),
+                          Text("$_mattrix13", textAlign: TextAlign.center),
+                          Text(
+                            "$_supplya",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(fontFamily: 'PromptBold'),
+                          ),
+                        ]),
+                        TableRow(children: [
+                          Padding(
+                            padding: EdgeInsets.only(top: 10, bottom: 10),
+                            child: Text(
+                              'B',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(fontFamily: 'PromptBold'),
+                            ),
+                          ),
+                          Text("$_mattrix21", textAlign: TextAlign.center),
+                          Text("$_mattrix22", textAlign: TextAlign.center),
+                          Text("$_mattrix23", textAlign: TextAlign.center),
+                          Text(
+                            "$_supplyb",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(fontFamily: 'PromptBold'),
+                          ),
+                        ]),
+                        TableRow(children: [
+                          Padding(
+                            padding: EdgeInsets.only(top: 10, bottom: 10),
+                            child: Text(
+                              'C',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(fontFamily: 'PromptBold'),
+                            ),
+                          ),
+                          Text("$_mattrix31", textAlign: TextAlign.center),
+                          Text("$_mattrix32", textAlign: TextAlign.center),
+                          Text("$_mattrix33", textAlign: TextAlign.center),
+                          Text(
+                            "$_supplyc",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(fontFamily: 'PromptBold'),
+                          ),
+                        ]),
+                        TableRow(children: [
+                          Padding(
+                            padding: EdgeInsets.only(top: 10, bottom: 10),
+                            child: Text(
+                              'Demand',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(fontFamily: 'PromptBold'),
+                            ),
+                          ),
+                          Text(
+                            "$_demanda",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(fontFamily: 'PromptBold'),
+                          ),
+                          Text(
+                            "$_demandb",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(fontFamily: 'PromptBold'),
+                          ),
+                          Text(
+                            "$_demandc",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(fontFamily: 'PromptBold'),
+                          ),
+                          Text(
+                            'supply',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(fontFamily: 'PromptBold'),
+                          ),
+                        ]),
+                      ]),
+                )
+              ],
+            ),
+          )),
+        ));
   }
 }
