@@ -122,7 +122,7 @@ class _Northwest3x3State extends State<Northwest3x3> {
     }
     if (_mattrix23 == 0) {
       setState(() {
-        if (_mattrix23 == 0) {
+        if (_mattrix12 == 0) {
           if (supplyb - (_mattrix21 + _mattrix22) > demandc) {
             _mattrix23 = demandc;
           } else {
@@ -173,7 +173,7 @@ class _Northwest3x3State extends State<Northwest3x3> {
           if (demandc - (_mattrix13 + _mattrix23) > supplyc) {
             _mattrix33 = supplyc;
           } else {
-            _mattrix33 = demanda - (_mattrix13 + _mattrix23);
+            _mattrix33 = demandc - (_mattrix13 + _mattrix23);
           }
         } else {
           if (supplyc - (_mattrix31 + _mattrix32) > demandc) {
@@ -277,9 +277,9 @@ class _Northwest3x3State extends State<Northwest3x3> {
             Padding(
               padding: EdgeInsets.only(top: 20),
               child: RaisedButton(
-              child: Text('กดเพื่อ สร้างตาราง'),
-              onPressed: _incrementCounter,
-            ),
+                child: Text('กดเพื่อ สร้างตาราง'),
+                onPressed: _incrementCounter,
+              ),
             ),
             Padding(
               padding: EdgeInsets.only(top: 20),
@@ -288,60 +288,60 @@ class _Northwest3x3State extends State<Northwest3x3> {
             Padding(
               padding: EdgeInsets.all(10),
               child: Table(
-                defaultVerticalAlignment: TableCellVerticalAlignment.middle,
-                border: TableBorder.all(color: Colors.black),
-                children: [
-                  TableRow(children: [
-                    Padding(
-                      padding: EdgeInsets.only(top: 10,bottom: 10),
-                      child: Text('Company', textAlign: TextAlign.center),
-                    ),
-                    Text('a', textAlign: TextAlign.center),
-                    Text('b', textAlign: TextAlign.center),
-                    Text('c', textAlign: TextAlign.center),
-                    Text('supply', textAlign: TextAlign.center),
+                  defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+                  border: TableBorder.all(color: Colors.black),
+                  children: [
+                    TableRow(children: [
+                      Padding(
+                        padding: EdgeInsets.only(top: 10, bottom: 10),
+                        child: Text('Company', textAlign: TextAlign.center),
+                      ),
+                      Text('a', textAlign: TextAlign.center),
+                      Text('b', textAlign: TextAlign.center),
+                      Text('c', textAlign: TextAlign.center),
+                      Text('supply', textAlign: TextAlign.center),
+                    ]),
+                    TableRow(children: [
+                      Padding(
+                        padding: EdgeInsets.only(top: 10, bottom: 10),
+                        child: Text('A', textAlign: TextAlign.center),
+                      ),
+                      Text("$_mattrix11", textAlign: TextAlign.center),
+                      Text("$_mattrix12", textAlign: TextAlign.center),
+                      Text("$_mattrix13", textAlign: TextAlign.center),
+                      Text("$_supplya", textAlign: TextAlign.center),
+                    ]),
+                    TableRow(children: [
+                      Padding(
+                        padding: EdgeInsets.only(top: 10, bottom: 10),
+                        child: Text('B', textAlign: TextAlign.center),
+                      ),
+                      Text("$_mattrix21", textAlign: TextAlign.center),
+                      Text("$_mattrix22", textAlign: TextAlign.center),
+                      Text("$_mattrix23", textAlign: TextAlign.center),
+                      Text("$_supplyb", textAlign: TextAlign.center),
+                    ]),
+                    TableRow(children: [
+                      Padding(
+                        padding: EdgeInsets.only(top: 10, bottom: 10),
+                        child: Text('C', textAlign: TextAlign.center),
+                      ),
+                      Text("$_mattrix31", textAlign: TextAlign.center),
+                      Text("$_mattrix32", textAlign: TextAlign.center),
+                      Text("$_mattrix33", textAlign: TextAlign.center),
+                      Text("$_supplyc", textAlign: TextAlign.center),
+                    ]),
+                    TableRow(children: [
+                      Padding(
+                        padding: EdgeInsets.only(top: 10, bottom: 10),
+                        child: Text('Demand', textAlign: TextAlign.center),
+                      ),
+                      Text("$_demanda", textAlign: TextAlign.center),
+                      Text("$_demandb", textAlign: TextAlign.center),
+                      Text("$_demandc", textAlign: TextAlign.center),
+                      Text('supply', textAlign: TextAlign.center),
+                    ]),
                   ]),
-                  TableRow(children: [
-                    Padding(
-                      padding: EdgeInsets.only(top: 10,bottom: 10),
-                      child: Text('A', textAlign: TextAlign.center),
-                    ),
-                    Text("$_mattrix11", textAlign: TextAlign.center),
-                    Text("$_mattrix12", textAlign: TextAlign.center),
-                    Text("$_mattrix13", textAlign: TextAlign.center),
-                    Text("$_supplya", textAlign: TextAlign.center),
-                  ]),
-                  TableRow(children: [
-                    Padding(
-                      padding: EdgeInsets.only(top: 10,bottom: 10),
-                      child: Text('B', textAlign: TextAlign.center),
-                    ),
-                    Text("$_mattrix21", textAlign: TextAlign.center),
-                    Text("$_mattrix22", textAlign: TextAlign.center),
-                    Text("$_mattrix23", textAlign: TextAlign.center),
-                    Text("$_supplyb", textAlign: TextAlign.center),
-                  ]),
-                  TableRow(children: [
-                    Padding(
-                      padding: EdgeInsets.only(top: 10,bottom: 10),
-                      child: Text('C', textAlign: TextAlign.center),
-                    ),
-                    Text("$_mattrix31", textAlign: TextAlign.center),
-                    Text("$_mattrix32", textAlign: TextAlign.center),
-                    Text("$_mattrix33", textAlign: TextAlign.center),
-                    Text("$_supplyc", textAlign: TextAlign.center),
-                  ]),
-                  TableRow(children: [
-                    Padding(
-                      padding: EdgeInsets.only(top: 10,bottom: 10),
-                      child: Text('Demand', textAlign: TextAlign.center),
-                    ),
-                    Text("$_demanda", textAlign: TextAlign.center),
-                    Text("$_demandb", textAlign: TextAlign.center),
-                    Text("$_demandc", textAlign: TextAlign.center),
-                    Text('supply', textAlign: TextAlign.center),
-                  ]),
-                ]),
             )
           ],
         ),
