@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:northwest/screen/3x3.dart';
+import 'package:northwest/screen/homescreen.dart';
 
 void main() => runApp(MyApp());
 
@@ -12,7 +13,10 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         fontFamily: 'Prompt',
       ),
-      home: Northwest3x3(title: 'NorthWest'),
+      home: MyHomePage(),
+      routes: {
+        '/3x3': (BuildContext context) => Northwest3x3(title: 'NorthWest'),
+      },
     );
   }
 }
