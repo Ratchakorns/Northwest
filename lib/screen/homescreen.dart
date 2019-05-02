@@ -113,7 +113,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                         onHorizontalDragEnd: (details) {
                           animationController = AnimationController(
                               vsync: this,
-                              duration: Duration(milliseconds: 500));
+                              duration: Duration(milliseconds: 250));
                           curvedAnimation = CurvedAnimation(
                               parent: animationController,
                               curve: Curves.fastOutSlowIn);
@@ -141,7 +141,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                           }
                           setState(() {
                             scrollController.animateTo((cardIndex) * 300.0,
-                                duration: Duration(milliseconds: 500),
+                                duration: Duration(milliseconds: 100),
                                 curve: Curves.fastOutSlowIn);
                           });
 

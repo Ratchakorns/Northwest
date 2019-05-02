@@ -62,7 +62,7 @@ class _Northwest3x3State extends State<Northwest3x3> {
   TextEditingController _total32Controller = new TextEditingController();
   TextEditingController _total33Controller = new TextEditingController();
 
-  bool isOpenTable = false, isOpenTotal = false;
+  bool isOpenTable = false, isOpenTotal = false, isCloseTable = true;
 
   void _incrementCounter() {
     int supplya = int.parse(_supplyaController.text);
@@ -224,6 +224,7 @@ class _Northwest3x3State extends State<Northwest3x3> {
 
     setState(() {
       isOpenTable = true;
+      isCloseTable = false;
     });
   }
 
@@ -293,128 +294,141 @@ class _Northwest3x3State extends State<Northwest3x3> {
                   border: new Border.all(color: Colors.blueAccent, width: 3)),
               child: Column(
                 children: <Widget>[
-                  Padding(
-                    padding: EdgeInsets.only(top: 20, bottom: 20),
-                    child: Text(
-                      'Supply',
-                      style: TextStyle(fontFamily: 'PromptBold'),
-                    ),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: <Widget>[
-                      Text(
-                        'A',
-                        style: TextStyle(fontFamily: 'PromptBold'),
-                      ),
-                      Text(
-                        'B',
-                        style: TextStyle(fontFamily: 'PromptBold'),
-                      ),
-                      Text(
-                        'C',
-                        style: TextStyle(fontFamily: 'PromptBold'),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: <Widget>[
-                      Container(
-                        width: 100,
-                        child: TextField(
-                          controller: _supplyaController,
-                          textAlign: TextAlign.center,
-                          keyboardType: TextInputType.number,
-                        ),
-                      ),
-                      Container(
-                        width: 100,
-                        child: TextField(
-                          controller: _supplybController,
-                          textAlign: TextAlign.center,
-                          keyboardType: TextInputType.number,
-                        ),
-                      ),
-                      Container(
-                        width: 100,
-                        child: TextField(
-                          controller: _supplycController,
-                          textAlign: TextAlign.center,
-                          keyboardType: TextInputType.number,
-                        ),
-                      ),
-                    ],
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(top: 20, bottom: 20),
-                    child: Text(
-                      'Demand',
-                      style: TextStyle(fontFamily: 'PromptBold'),
-                    ),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: <Widget>[
-                      Text(
-                        'a',
-                        style: TextStyle(fontFamily: 'PromptBold'),
-                      ),
-                      Text(
-                        'b',
-                        style: TextStyle(fontFamily: 'PromptBold'),
-                      ),
-                      Text(
-                        'c',
-                        style: TextStyle(fontFamily: 'PromptBold'),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: <Widget>[
-                      Container(
-                        width: 100,
-                        child: TextField(
-                          controller: _demandaController,
-                          textAlign: TextAlign.center,
-                          keyboardType: TextInputType.number,
-                        ),
-                      ),
-                      Container(
-                        width: 100,
-                        child: TextField(
-                          controller: _demandbController,
-                          textAlign: TextAlign.center,
-                          keyboardType: TextInputType.number,
-                        ),
-                      ),
-                      Container(
-                        width: 100,
-                        child: TextField(
-                          controller: _demandcController,
-                          textAlign: TextAlign.center,
-                          keyboardType: TextInputType.number,
-                        ),
-                      ),
-                    ],
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(top: 20),
-                    child: RaisedButton(
-                      child: Text(
-                        'กดเพื่อสร้างตาราง',
-                        style: TextStyle(fontSize: 24),
-                      ),
-                      onPressed: _incrementCounter,
-                    ),
-                  ),
+                  isCloseTable ? closetable() : Container(),
                   isOpenTable ? table() : Container()
                 ],
               ),
             ),
           ))),
         ));
+  }
+
+  Widget closetable() {
+    return Container(
+      child: Padding(
+        padding: EdgeInsets.all(0),
+        child: Column(
+          children: <Widget>[
+            Padding(
+              padding: EdgeInsets.only(top: 20, bottom: 20),
+              child: Text(
+                'Supply',
+                style: TextStyle(fontFamily: 'PromptBold'),
+              ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: <Widget>[
+                Text(
+                  'A',
+                  style: TextStyle(fontFamily: 'PromptBold'),
+                ),
+                Text(
+                  'B',
+                  style: TextStyle(fontFamily: 'PromptBold'),
+                ),
+                Text(
+                  'C',
+                  style: TextStyle(fontFamily: 'PromptBold'),
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: <Widget>[
+                Container(
+                  width: 100,
+                  child: TextField(
+                    controller: _supplyaController,
+                    textAlign: TextAlign.center,
+                    keyboardType: TextInputType.number,
+                  ),
+                ),
+                Container(
+                  width: 100,
+                  child: TextField(
+                    controller: _supplybController,
+                    textAlign: TextAlign.center,
+                    keyboardType: TextInputType.number,
+                  ),
+                ),
+                Container(
+                  width: 100,
+                  child: TextField(
+                    controller: _supplycController,
+                    textAlign: TextAlign.center,
+                    keyboardType: TextInputType.number,
+                  ),
+                ),
+              ],
+            ),
+            Padding(
+              padding: EdgeInsets.only(top: 20, bottom: 20),
+              child: Text(
+                'Demand',
+                style: TextStyle(fontFamily: 'PromptBold'),
+              ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: <Widget>[
+                Text(
+                  'a',
+                  style: TextStyle(fontFamily: 'PromptBold'),
+                ),
+                Text(
+                  'b',
+                  style: TextStyle(fontFamily: 'PromptBold'),
+                ),
+                Text(
+                  'c',
+                  style: TextStyle(fontFamily: 'PromptBold'),
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: <Widget>[
+                Container(
+                  width: 100,
+                  child: TextField(
+                    controller: _demandaController,
+                    textAlign: TextAlign.center,
+                    keyboardType: TextInputType.number,
+                  ),
+                ),
+                Container(
+                  width: 100,
+                  child: TextField(
+                    controller: _demandbController,
+                    textAlign: TextAlign.center,
+                    keyboardType: TextInputType.number,
+                  ),
+                ),
+                Container(
+                  width: 100,
+                  child: TextField(
+                    controller: _demandcController,
+                    textAlign: TextAlign.center,
+                    keyboardType: TextInputType.number,
+                  ),
+                ),
+              ],
+            ),
+            Padding(
+              padding: EdgeInsets.only(top: 20),
+              child: RaisedButton(
+                child: Text(
+                  'กดเพื่อสร้างตาราง',
+                  style: TextStyle(fontSize: 24),
+                ),
+                onPressed: _incrementCounter,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 
   Widget total1() {
