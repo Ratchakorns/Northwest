@@ -44,7 +44,15 @@ class _Northwest3x3State extends State<Northwest3x3> {
       _supplyc,
       _demanda,
       _demandb,
-      _demandc;
+      _demandc,
+      _dumdemanda,
+      _dumdemandb,
+      _dumdemandc,
+      _dumdemandtotle,
+      _dumsupplya,
+      _dumsupplyb,
+      _dumsupplyc,
+      _dumsupplytotle;
 
   TextEditingController _supplyaController = new TextEditingController();
   TextEditingController _supplybController = new TextEditingController();
@@ -110,6 +118,14 @@ class _Northwest3x3State extends State<Northwest3x3> {
     _mattrix31 = 0;
     _mattrix32 = 0;
     _mattrix33 = 0;
+    _dumdemanda = 0;
+    _dumdemandb = 0;
+    _dumdemandc = 0;
+    _dumdemandtotle = 0;
+    _dumsupplya = 0;
+    _dumsupplyb = 0;
+    _dumsupplyc = 0;
+    _dumsupplytotle = 0;
 
     if (_mattrix11 == 0) {
       setState(() {
@@ -238,6 +254,70 @@ class _Northwest3x3State extends State<Northwest3x3> {
             _mattrix33 = supplyc - (_mattrix31 + _mattrix32);
           }
         }
+      });
+    }
+    if (_dumdemanda == 0) {
+      setState(() {
+        if (demanda == _mattrix11 + _mattrix21 + _mattrix31) {
+         _dumdemanda = 0;
+        } else {
+          _dumdemanda = (demanda - (_mattrix11 + _mattrix21 + _mattrix31));
+        }
+      });
+    }
+    if (_dumdemandb == 0) {
+      setState(() {
+        if (demandb == _mattrix12 + _mattrix22 + _mattrix32) {
+         _dumdemandb = 0;
+        } else {
+          _dumdemandb = (demandb - (_mattrix12 + _mattrix22 + _mattrix32));
+        }
+      });
+    }
+    if (_dumdemandc == 0) {
+      setState(() {
+        if (demandc == _mattrix13 + _mattrix23 + _mattrix33) {
+         _dumdemandc = 0;
+        } else {
+          _dumdemandc = (demandc - (_mattrix13 + _mattrix23 + _mattrix33));
+        }
+      });
+    }
+    if (_dumdemandtotle == 0) {
+      setState(() {
+       _dumdemandtotle = _dumdemanda + _dumdemandb + _dumdemandc;
+      });
+    }
+     if (_dumsupplya == 0) {
+      setState(() {
+        if (supplya == _mattrix11 + _mattrix12 + _mattrix13) {
+         _dumsupplya = 0;
+        } else {
+          _dumsupplya = (supplya - (_mattrix11 + _mattrix12 + _mattrix13));
+        }
+      });
+    }
+    if (_dumsupplyb == 0) {
+      setState(() {
+        if (supplyb == _mattrix21 + _mattrix22 + _mattrix23) {
+         _dumsupplyb = 0;
+        } else {
+          _dumsupplyb = (supplyb - (_mattrix21 + _mattrix22 + _mattrix23));
+        }
+      });
+    }
+    if (_dumsupplyc == 0) {
+      setState(() {
+        if (supplyc == _mattrix31 + _mattrix32 + _mattrix33) {
+         _dumsupplyc = 0;
+        } else {
+          _dumsupplyc = (supplyc - (_mattrix31 + _mattrix32 + _mattrix33));
+        }
+      });
+    }
+     if (_dumdemandtotle == 0) {
+      setState(() {
+       _dumsupplytotle = _dumsupplya + _dumsupplyb + _dumsupplyc;
       });
     }
     _total11 = total11 * _mattrix11;
