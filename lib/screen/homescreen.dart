@@ -43,12 +43,6 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
         ),
         backgroundColor: currentColor,
         centerTitle: true,
-        actions: <Widget>[
-          Padding(
-            padding: const EdgeInsets.only(right: 16.0),
-            child: Icon(Icons.search),
-          ),
-        ],
         elevation: 0.0,
       ),
       body: new SingleChildScrollView(

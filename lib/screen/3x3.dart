@@ -362,30 +362,35 @@ class _Northwest3x3State extends State<Northwest3x3> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text(widget.title),
+        appBar: new AppBar(
+          title: new Text('3x3'),
           centerTitle: true,
+          elevation: 0.0,
+          backgroundColor: Color.fromRGBO(99, 138, 223, 1.0),
         ),
+        backgroundColor: Colors.white,
         body: new GestureDetector(
           onTap: () {
             FocusScope.of(context).requestFocus(new FocusNode());
           },
           child: new Container(
+              color: Colors.white,
               child: SingleChildScrollView(
                   child: Padding(
-            padding: EdgeInsets.all(10),
-            child: Container(
-              decoration: new BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                  border: new Border.all(color: Colors.blueAccent, width: 3)),
-              child: Column(
-                children: <Widget>[
-                  isCloseTable ? closetable() : Container(),
-                  isOpenTable ? table() : Container()
-                ],
-              ),
-            ),
-          ))),
+                padding: EdgeInsets.all(10),
+                child: Container(
+                  decoration: new BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                      border: new Border.all(
+                          color: Color.fromRGBO(99, 138, 223, 1.0), width: 3)),
+                  child: Column(
+                    children: <Widget>[
+                      isCloseTable ? closetable() : Container(),
+                      isOpenTable ? table() : Container()
+                    ],
+                  ),
+                ),
+              ))),
         ));
   }
 
@@ -396,20 +401,36 @@ class _Northwest3x3State extends State<Northwest3x3> {
         child: Column(
           children: <Widget>[
             Padding(
-              padding: EdgeInsets.all(10),
+              padding: EdgeInsets.only(top: 10),
+              child: Text(
+                'วิธีการใช้งาน',
+                style: TextStyle(fontFamily: 'PromptBold', fontSize: 24),
+              ),
+            ),
+            Text(
+              '1.กรอกความต้องการสินค้าใส่ลงในแถว Demand',
+            ),
+            Text(
+              '2.กรอกกำลังการผลิตใส่ลงในแถว Supply',
+            ),
+            Text(
+              '3.กรอกราคาต่อหน่วยลงในตาราง 3x3',
+            ),
+            Text(
+              '4.กดปุ่ม "กดเพื่อสร้างตาราง" เพื่อดูผลลัพธ์',
+            ),
+            Padding(
+              padding:
+                  EdgeInsets.only(top: 20, bottom: 10, left: 10, right: 10),
               child: Table(
                   defaultVerticalAlignment: TableCellVerticalAlignment.middle,
-                  border: TableBorder.all(color: Colors.black),
+                  border:
+                      TableBorder.all(color: Color.fromRGBO(99, 138, 223, 1.0)),
                   children: [
                     TableRow(children: [
                       Padding(
-                        padding: EdgeInsets.only(top: 10, bottom: 10),
-                        child: Text(
-                          'Company',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(fontFamily: 'PromptBold'),
-                        ),
-                      ),
+                          padding: EdgeInsets.only(top: 10, bottom: 10),
+                          child: Icon(Icons.star)),
                       Text(
                         'a',
                         textAlign: TextAlign.center,
@@ -599,7 +620,7 @@ class _Northwest3x3State extends State<Northwest3x3> {
                   ]),
             ),
             Padding(
-              padding: EdgeInsets.only(top: 20, bottom: 10),
+              padding: EdgeInsets.only(top: 0, bottom: 10),
               child: RaisedButton(
                 child: Text(
                   'กดเพื่อสร้างตาราง',
@@ -751,27 +772,23 @@ class _Northwest3x3State extends State<Northwest3x3> {
       return Column(
         children: <Widget>[
           Padding(
-            padding: EdgeInsets.only(top: 20),
+            padding: EdgeInsets.only(top: 0),
             child: Text(
               'ตาราง',
-              style: TextStyle(fontFamily: 'PromptBold'),
+              style: TextStyle(fontFamily: 'PromptBold', fontSize: 24),
             ),
           ),
           Padding(
             padding: EdgeInsets.all(10),
             child: Table(
                 defaultVerticalAlignment: TableCellVerticalAlignment.middle,
-                border: TableBorder.all(color: Colors.black),
+                border:
+                    TableBorder.all(color: Color.fromRGBO(99, 138, 223, 1.0)),
                 children: [
                   TableRow(children: [
                     Padding(
-                      padding: EdgeInsets.only(top: 10, bottom: 10),
-                      child: Text(
-                        'Company',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(fontFamily: 'PromptBold'),
-                      ),
-                    ),
+                        padding: EdgeInsets.only(top: 10, bottom: 10),
+                        child: Icon(Icons.star)),
                     Text(
                       'a',
                       textAlign: TextAlign.center,
@@ -1029,27 +1046,23 @@ class _Northwest3x3State extends State<Northwest3x3> {
       return Column(
         children: <Widget>[
           Padding(
-            padding: EdgeInsets.only(top: 20),
+            padding: EdgeInsets.only(top: 0),
             child: Text(
               'ตาราง',
-              style: TextStyle(fontFamily: 'PromptBold'),
+              style: TextStyle(fontFamily: 'PromptBold', fontSize: 24),
             ),
           ),
           Padding(
             padding: EdgeInsets.all(10),
             child: Table(
                 defaultVerticalAlignment: TableCellVerticalAlignment.middle,
-                border: TableBorder.all(color: Colors.black),
+                border:
+                    TableBorder.all(color: Color.fromRGBO(99, 138, 223, 1.0)),
                 children: [
                   TableRow(children: [
                     Padding(
-                      padding: EdgeInsets.only(top: 10, bottom: 10),
-                      child: Text(
-                        'Company',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(fontFamily: 'PromptBold'),
-                      ),
-                    ),
+                        padding: EdgeInsets.only(top: 10, bottom: 10),
+                        child: Icon(Icons.star)),
                     Text(
                       'a',
                       textAlign: TextAlign.center,
@@ -1149,7 +1162,9 @@ class _Northwest3x3State extends State<Northwest3x3> {
                             ),
                           ),
                         ),
-                        Text("$_dumsupplya", textAlign: TextAlign.center),
+                        Text("$_dumsupplya",
+                            style: TextStyle(fontFamily: 'PromptBold'),
+                            textAlign: TextAlign.center),
                       ],
                     ),
                     Text(
@@ -1232,7 +1247,9 @@ class _Northwest3x3State extends State<Northwest3x3> {
                             ),
                           ),
                         ),
-                        Text("$_dumsupplyb", textAlign: TextAlign.center),
+                        Text("$_dumsupplyb",
+                            style: TextStyle(fontFamily: 'PromptBold'),
+                            textAlign: TextAlign.center),
                       ],
                     ),
                     Text(
@@ -1315,7 +1332,11 @@ class _Northwest3x3State extends State<Northwest3x3> {
                             ),
                           ),
                         ),
-                        Text("$_dumsupplyc", textAlign: TextAlign.center),
+                        Text(
+                          "$_dumsupplyc",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontFamily: 'PromptBold'),
+                        ),
                       ],
                     ),
                     Text(
@@ -1368,27 +1389,23 @@ class _Northwest3x3State extends State<Northwest3x3> {
       return Column(
         children: <Widget>[
           Padding(
-            padding: EdgeInsets.only(top: 20),
+            padding: EdgeInsets.only(top: 0),
             child: Text(
               'ตาราง',
-              style: TextStyle(fontFamily: 'PromptBold'),
+              style: TextStyle(fontFamily: 'PromptBold', fontSize: 24),
             ),
           ),
           Padding(
             padding: EdgeInsets.all(10),
             child: Table(
                 defaultVerticalAlignment: TableCellVerticalAlignment.middle,
-                border: TableBorder.all(color: Colors.black),
+                border:
+                    TableBorder.all(color: Color.fromRGBO(99, 138, 223, 1.0)),
                 children: [
                   TableRow(children: [
                     Padding(
-                      padding: EdgeInsets.only(top: 10, bottom: 10),
-                      child: Text(
-                        'Company',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(fontFamily: 'PromptBold'),
-                      ),
-                    ),
+                        padding: EdgeInsets.only(top: 10, bottom: 10),
+                        child: Icon(Icons.star)),
                     Text(
                       'a',
                       textAlign: TextAlign.center,
@@ -1630,7 +1647,9 @@ class _Northwest3x3State extends State<Northwest3x3> {
                             ),
                           ),
                         ),
-                        Text("$_dumdemanda", textAlign: TextAlign.center),
+                        Text("$_dumdemanda",
+                            style: TextStyle(fontFamily: 'PromptBold'),
+                            textAlign: TextAlign.center),
                       ],
                     ),
                     Column(
@@ -1647,7 +1666,9 @@ class _Northwest3x3State extends State<Northwest3x3> {
                             ),
                           ),
                         ),
-                        Text("$_dumdemandb", textAlign: TextAlign.center),
+                        Text("$_dumdemandb",
+                            style: TextStyle(fontFamily: 'PromptBold'),
+                            textAlign: TextAlign.center),
                       ],
                     ),
                     Column(
@@ -1664,7 +1685,9 @@ class _Northwest3x3State extends State<Northwest3x3> {
                             ),
                           ),
                         ),
-                        Text("$_dumdemandc", textAlign: TextAlign.center),
+                        Text("$_dumdemandc",
+                            style: TextStyle(fontFamily: 'PromptBold'),
+                            textAlign: TextAlign.center),
                       ],
                     ),
                     Text(
