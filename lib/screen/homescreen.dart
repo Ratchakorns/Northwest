@@ -38,8 +38,8 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
       backgroundColor: currentColor,
       appBar: new AppBar(
         title: new Text(
-          "TODO",
-          style: TextStyle(fontSize: 16.0),
+          "Northwest",
+          style: TextStyle(fontSize: 24.0),
         ),
         backgroundColor: currentColor,
         centerTitle: true,
@@ -113,7 +113,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                         onHorizontalDragEnd: (details) {
                           animationController = AnimationController(
                               vsync: this,
-                              duration: Duration(milliseconds: 250));
+                              duration: Duration(milliseconds: 200));
                           curvedAnimation = CurvedAnimation(
                               parent: animationController,
                               curve: Curves.fastOutSlowIn);
@@ -141,7 +141,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                           }
                           setState(() {
                             scrollController.animateTo((cardIndex) * 300.0,
-                                duration: Duration(milliseconds: 100),
+                                duration: Duration(milliseconds: 200),
                                 curve: Curves.fastOutSlowIn);
                           });
 
