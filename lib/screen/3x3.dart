@@ -506,7 +506,7 @@ class _Northwest3x3State extends State<Northwest3x3> {
                   ]),
             ),
             Padding(
-              padding: EdgeInsets.only(top: 20),
+              padding: EdgeInsets.only(top: 20,bottom: 10),
               child: RaisedButton(
                 child: Text(
                   'กดเพื่อสร้างตาราง',
@@ -528,13 +528,41 @@ class _Northwest3x3State extends State<Northwest3x3> {
             child: Column(
               children: <Widget>[
                 Text(
+                  "วิธีทำ",
+                  style: TextStyle(fontSize: 24, fontFamily: 'PromptBold'),
+                ),
+                Column(
+                  children: <Widget>[
+                    Text(
+                      '($_mattrix11*$_default11) + ($_mattrix12*$_default12) + ($_mattrix13*$_default13) + ',
+                      style: TextStyle(fontSize: 16),
+                    ),
+                    Text(
+                      '($_mattrix21*$_default21) + ($_mattrix22*$_default22) + ($_mattrix23*$_default23) + ',
+                      style: TextStyle(fontSize: 16),
+                    ),
+                    Text(
+                      '($_mattrix31*$_default31) + ($_mattrix32*$_default32) + ($_mattrix33*$_default33) ',
+                      style: TextStyle(fontSize: 16),
+                    )
+                  ],
+                ),
+                Text(
                   'ผลลัพธ์ = $total',
                   style: TextStyle(fontFamily: 'PromptBold', fontSize: 24),
                 ),
-                Text(
-                  "วิธีทำ = ($_mattrix11*$_default11) + ($_mattrix12*$_default12) + ($_mattrix13*$_default13) + ($_mattrix21*$_default21) + ($_mattrix22*$_default22) +($_mattrix23*$_default23) + ($_mattrix31*$_default31) + ($_mattrix32*$_default32) + ($_mattrix33*$_default33) = $total",
-                  style: TextStyle(fontSize: 16),
-                ),
+                Padding(
+                  padding: EdgeInsets.only(top: 10),
+                  child: RaisedButton(
+                    child: Text(
+                      'เริ่มต้นใหม่',
+                      style: TextStyle(fontSize: 24),
+                    ),
+                    onPressed: () {
+                      Navigator.pop(context, '/3x3');
+                    },
+                  ),
+                )
               ],
             )));
   }
