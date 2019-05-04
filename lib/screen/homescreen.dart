@@ -31,9 +31,23 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       Scaffold(
+          appBar: AppBar(
+            title: GradientText("North-West Corner Rule",
+                gradient: LinearGradient(colors: [
+                  Color(0xFFD16BA5),
+                  Color(0xFF86A8E7),
+                  Color(0xFF5fb7fb),
+                ]),
+                style: TextStyle(
+                  fontFamily: 'PromptBold',
+                )),
+            centerTitle: true,
+            backgroundColor: Colors.transparent,
+            elevation: 0.0,
+          ),
           backgroundColor: Colors.transparent,
           body: Padding(
-              padding: EdgeInsets.only(top: 30),
+              padding: EdgeInsets.all(0),
               child: Container(
                 child: SingleChildScrollView(
                   child: Container(
@@ -42,18 +56,6 @@ class _MyHomePageState extends State<MyHomePage> {
                               EdgeInsets.only(left: 20, right: 20, bottom: 20),
                           child: Column(
                             children: <Widget>[
-                              Padding(
-                                  padding: EdgeInsets.only(bottom: 10),
-                                  child: GradientText("North-West Corner Rule",
-                                      gradient: LinearGradient(colors: [
-                                        Color(0xFFD16BA5),
-                                        Color(0xFF86A8E7),
-                                        Color(0xFF5fb7fb),
-                                      ]),
-                                      style: TextStyle(
-                                        fontSize: 36,
-                                        fontFamily: 'PromptBold',
-                                      ))),
                               Text(
                                 'เป็นวิธีการหาคำเฉลยเบื้องต้นที่ง่ายที่สุด วิธีการหาคำเฉลยจะเริ่มจากช่องมุมบนซ้ายที่สุดของตารางเสมอ และจะต้องจัดสรรปริมาณที่จะขนส่งไปตามเงื่อนไขของแถวนอนหรือแถวตั้งแรกเสียก่อน แล้วจึงย้ายไปพิจารณาแถวนอนและแถวตั้งถัดไป จนกระทั่งครบตามเงื่อนไขของแถวนอน และ แถวตั้ง',
                                 style: TextStyle(fontSize: 16),
