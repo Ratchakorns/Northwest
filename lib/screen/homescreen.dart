@@ -1,157 +1,163 @@
 import 'package:flutter/material.dart';
-import 'package:northwest/widget/carditemmodel.dart';
+import 'package:gradient_text/gradient_text.dart';
 
 class MyHomePage extends StatefulWidget {
+  MyHomePage({Key key, this.title}) : super(key: key);
+  final String title;
+
   @override
-  _MyHomePageState createState() => new _MyHomePageState();
+  _MyHomePageState createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
-  var appColors = [
-    Color.fromRGBO(231, 129, 109, 1.0),
-    Color.fromRGBO(99, 138, 223, 1.0),
-    Color.fromRGBO(111, 194, 173, 1.0)
-  ];
-  var cardIndex = 0;
-  ScrollController scrollController;
-  var currentColor = Color.fromRGBO(231, 129, 109, 1.0);
-
-  var cardsList = [
-    CardItemModel("2X2", Icons.person, '/2x2'),
-    CardItemModel("3X3", Icons.work, '/3x3'),
-    CardItemModel("4X4", Icons.home, '/4x4'),
-  ];
-
-  AnimationController animationController;
-  ColorTween colorTween;
-  CurvedAnimation curvedAnimation;
-
-  @override
-  void initState() {
-    super.initState();
-    scrollController = new ScrollController();
-  }
-
+class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      backgroundColor: currentColor,
-      appBar: new AppBar(
-        title: new Text(
-          "Northwest",
-          style: TextStyle(fontSize: 24.0),
+    return Stack(children: <Widget>[
+      Container(
+        height: double.infinity,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            stops: [0.2, 0.4, 0.6, 0.8, 1.0],
+            colors: [
+              Color(0xFFFACDCD),
+              Color(0xFFF8FACD),
+              Color(0xFFD2FACD),
+              Color(0xFFCDFAEC),
+              Color(0xFFECCDFA),
+            ],
+          ),
         ),
-        backgroundColor: currentColor,
-        centerTitle: true,
-        elevation: 0.0,
       ),
-      body: new SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Container(
-                  height: 600.0,
-                  child: ListView.builder(
-                    physics: NeverScrollableScrollPhysics(),
-                    itemCount: 3,
-                    controller: scrollController,
-                    scrollDirection: Axis.horizontal,
-                    itemBuilder: (context, position) {
-                      return GestureDetector(
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Card(
-                            child: InkWell(
-                              onTap: () {
-                                Navigator.pushNamed(
-                                    context, "${cardsList[position].route}");
-                              },
+      Scaffold(
+          backgroundColor: Colors.transparent,
+          body: Center(
+              child: Container(
+            child: SingleChildScrollView(
+              child: Container(
+                  child: Padding(
+                      padding: EdgeInsets.only(left: 20, right: 20),
+                      child: Column(
+                        children: <Widget>[
+                          Padding(
+                              padding: EdgeInsets.only(bottom: 10),
+                              child: GradientText(
+                                "North-West Corner Rule",
+                                gradient: LinearGradient(colors: [
+                                  Color(0xFFD16BA5),
+                                  Color(0xFF86A8E7),
+                                  Color(0xFF5fb7fb),
+                                ]),
+                                style: TextStyle(fontSize: 36,fontFamily: 'PromptBold', )
+                                  
+                              )),
+                          Text(
+                            'เป็นวิธีการหาคำเฉลยเบื้องต้นที่ง่ายที่สุด วิธีการหาคำเฉลยจะเริ่มจากช่องมุมบนซ้ายที่สุดของตารางเสมอ และจะต้องจัดสรรปริมาณที่จะขนส่งไปตามเงื่อนไขของแถวนอนหรือแถวตั้งแรกเสียก่อน แล้วจึงย้ายไปพิจารณาแถวนอนและแถวตั้งถัดไป จนกระทั่งครบตามเงื่อนไขของแถวนอน และ แถวตั้ง',
+                            style: TextStyle(fontSize: 16),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(top: 20),
+                            child: Card(
+                                child: InkWell(
+                              onTap: () {},
                               child: Container(
-                                width: 300.0,
                                 child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                                  mainAxisSize: MainAxisSize.min,
                                   children: <Widget>[
-                                    Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: <Widget>[
-                                          Padding(
-                                            padding: const EdgeInsets.symmetric(
-                                                horizontal: 8.0, vertical: 4.0),
-                                            child: Text(
-                                              "${cardsList[position].cardTitle}",
-                                              style: TextStyle(fontSize: 28.0),
-                                            ),
-                                          ),
-                                        ],
+                                    const ListTile(
+                                      title: Text(
+                                        '2X2',
+                                        style: TextStyle(fontSize: 24),
                                       ),
+                                      subtitle: Text(
+                                          'สำหรับ Supply 2 แถว Demand 2 แถว'),
                                     ),
                                   ],
                                 ),
                               ),
-                            ),
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10.0)),
+                            )),
                           ),
-                        ),
-                        onHorizontalDragEnd: (details) {
-                          animationController = AnimationController(
-                              vsync: this,
-                              duration: Duration(milliseconds: 200));
-                          curvedAnimation = CurvedAnimation(
-                              parent: animationController,
-                              curve: Curves.fastOutSlowIn);
-                          animationController.addListener(() {
-                            setState(() {
-                              currentColor =
-                                  colorTween.evaluate(curvedAnimation);
-                            });
-                          });
-
-                          if (details.velocity.pixelsPerSecond.dx > 0) {
-                            if (cardIndex > 0) {
-                              cardIndex--;
-                              colorTween = ColorTween(
-                                  begin: currentColor,
-                                  end: appColors[cardIndex]);
-                            }
-                          } else {
-                            if (cardIndex < 2) {
-                              cardIndex++;
-                              colorTween = ColorTween(
-                                  begin: currentColor,
-                                  end: appColors[cardIndex]);
-                            }
-                          }
-                          setState(() {
-                            scrollController.animateTo((cardIndex) * 300.0,
-                                duration: Duration(milliseconds: 200),
-                                curve: Curves.fastOutSlowIn);
-                          });
-
-                          colorTween.animate(curvedAnimation);
-
-                          animationController.forward();
-                        },
-                      );
-                    },
-                  ),
-                ),
-              ],
-            )
-          ],
-        ),
-      ),
-    );
+                          Card(
+                              child: InkWell(
+                            onTap: () {},
+                            child: Container(
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: <Widget>[
+                                  const ListTile(
+                                    title: Text(
+                                      '2X3',
+                                      style: TextStyle(fontSize: 24),
+                                    ),
+                                    subtitle: Text(
+                                        'สำหรับ Supply 2 แถว Demand 3 แถว'),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          )),
+                          Card(
+                              child: InkWell(
+                            onTap: () {Navigator.pushNamed(context, '/3x3');},
+                            child: Container(
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: <Widget>[
+                                  const ListTile(
+                                    title: Text(
+                                      '3X3',
+                                      style: TextStyle(fontSize: 24),
+                                    ),
+                                    subtitle: Text(
+                                        'สำหรับ Supply 3 แถว Demand 3 แถว'),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          )),
+                          Card(
+                              child: InkWell(
+                            onTap: () {},
+                            child: Container(
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: <Widget>[
+                                  const ListTile(
+                                    title: Text(
+                                      '3X4',
+                                      style: TextStyle(fontSize: 24),
+                                    ),
+                                    subtitle: Text(
+                                        'สำหรับ Supply 3 แถว Demand 4 แถว'),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          )),
+                          Card(
+                              child: InkWell(
+                            onTap: () {},
+                            child: Container(
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: <Widget>[
+                                  const ListTile(
+                                    title: Text(
+                                      '4X4',
+                                      style: TextStyle(fontSize: 24),
+                                    ),
+                                    subtitle: Text(
+                                        'สำหรับ Supply 4 แถว Demand 4 แถว'),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          )),
+                        ],
+                      ))),
+            ),
+          ))),
+    ]);
   }
 }

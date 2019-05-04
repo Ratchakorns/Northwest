@@ -392,7 +392,7 @@ class _Northwest3x3State extends State<Northwest3x3> {
           gradient: LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
-            stops: [0.0, 0.5, 1.0],
+            stops: [0.0, 0.66, 1.0],
             colors: [
               Color(0xFFD16BA5),
               Color(0xFF86A8E7),
@@ -967,7 +967,7 @@ class _Northwest3x3State extends State<Northwest3x3> {
                               alignment: Alignment.centerRight,
                               child: Text(
                                 "$_default11",
-                                style: TextStyle(color: Colors.red),
+                                style: TextStyle(color: Color(0xFFD70000)),
                               ),
                             ),
                           ),
@@ -984,7 +984,7 @@ class _Northwest3x3State extends State<Northwest3x3> {
                               alignment: Alignment.centerRight,
                               child: Text(
                                 "$_default12",
-                                style: TextStyle(color: Colors.red),
+                                style: TextStyle(color: Color(0xFFD70000)),
                               ),
                             ),
                           ),
@@ -1001,7 +1001,7 @@ class _Northwest3x3State extends State<Northwest3x3> {
                                 alignment: Alignment.centerRight,
                                 child: Text(
                                   "$_default13",
-                                  style: TextStyle(color: Colors.red),
+                                  style: TextStyle(color: Color(0xFFD70000)),
                                 ),
                               ),
                             )),
@@ -1032,7 +1032,7 @@ class _Northwest3x3State extends State<Northwest3x3> {
                               alignment: Alignment.centerRight,
                               child: Text(
                                 "$_default21",
-                                style: TextStyle(color: Colors.red),
+                                style: TextStyle(color: Color(0xFFD70000)),
                               ),
                             ),
                           ),
@@ -1049,7 +1049,7 @@ class _Northwest3x3State extends State<Northwest3x3> {
                               alignment: Alignment.centerRight,
                               child: Text(
                                 "$_default22",
-                                style: TextStyle(color: Colors.red),
+                                style: TextStyle(color: Color(0xFFD70000)),
                               ),
                             ),
                           ),
@@ -1066,7 +1066,7 @@ class _Northwest3x3State extends State<Northwest3x3> {
                               alignment: Alignment.centerRight,
                               child: Text(
                                 "$_default23",
-                                style: TextStyle(color: Colors.red),
+                                style: TextStyle(color: Color(0xFFD70000)),
                               ),
                             ),
                           ),
@@ -1098,7 +1098,7 @@ class _Northwest3x3State extends State<Northwest3x3> {
                               alignment: Alignment.centerRight,
                               child: Text(
                                 "$_default31",
-                                style: TextStyle(color: Colors.red),
+                                style: TextStyle(color: Color(0xFFD70000)),
                               ),
                             ),
                           ),
@@ -1115,7 +1115,7 @@ class _Northwest3x3State extends State<Northwest3x3> {
                               alignment: Alignment.centerRight,
                               child: Text(
                                 "$_default32",
-                                style: TextStyle(color: Colors.red),
+                                style: TextStyle(color: Color(0xFFD70000)),
                               ),
                             ),
                           ),
@@ -1132,7 +1132,7 @@ class _Northwest3x3State extends State<Northwest3x3> {
                               alignment: Alignment.centerRight,
                               child: Text(
                                 "$_default33",
-                                style: TextStyle(color: Colors.red),
+                                style: TextStyle(color: Color(0xFFD70000)),
                               ),
                             ),
                           ),
@@ -1247,7 +1247,7 @@ class _Northwest3x3State extends State<Northwest3x3> {
                               alignment: Alignment.centerRight,
                               child: Text(
                                 "$_default11",
-                                style: TextStyle(color: Colors.red),
+                                style: TextStyle(color: Color(0xFFD70000)),
                               ),
                             ),
                           ),
@@ -1264,7 +1264,7 @@ class _Northwest3x3State extends State<Northwest3x3> {
                               alignment: Alignment.centerRight,
                               child: Text(
                                 "$_default12",
-                                style: TextStyle(color: Colors.red),
+                                style: TextStyle(color: Color(0xFFD70000)),
                               ),
                             ),
                           ),
@@ -1281,7 +1281,7 @@ class _Northwest3x3State extends State<Northwest3x3> {
                                 alignment: Alignment.centerRight,
                                 child: Text(
                                   "$_default13",
-                                  style: TextStyle(color: Colors.red),
+                                  style: TextStyle(color: Color(0xFFD70000)),
                                 ),
                               ),
                             )),
@@ -1297,7 +1297,7 @@ class _Northwest3x3State extends State<Northwest3x3> {
                               alignment: Alignment.centerRight,
                               child: Text(
                                 "0",
-                                style: TextStyle(color: Colors.red),
+                                style: TextStyle(color: Color(0xFFD70000)),
                               ),
                             ),
                           ),
@@ -1331,7 +1331,7 @@ class _Northwest3x3State extends State<Northwest3x3> {
                               alignment: Alignment.centerRight,
                               child: Text(
                                 "$_default21",
-                                style: TextStyle(color: Colors.red),
+                                style: TextStyle(color: Color(0xFFD70000)),
                               ),
                             ),
                           ),
@@ -1348,7 +1348,7 @@ class _Northwest3x3State extends State<Northwest3x3> {
                               alignment: Alignment.centerRight,
                               child: Text(
                                 "$_default22",
-                                style: TextStyle(color: Colors.red),
+                                style: TextStyle(color: Color(0xFFD70000)),
                               ),
                             ),
                           ),
@@ -1365,7 +1365,7 @@ class _Northwest3x3State extends State<Northwest3x3> {
                               alignment: Alignment.centerRight,
                               child: Text(
                                 "$_default23",
-                                style: TextStyle(color: Colors.red),
+                                style: TextStyle(color: Color(0xFFD70000)),
                               ),
                             ),
                           ),
@@ -1382,7 +1382,7 @@ class _Northwest3x3State extends State<Northwest3x3> {
                               alignment: Alignment.centerRight,
                               child: Text(
                                 "0",
-                                style: TextStyle(color: Colors.red),
+                                style: TextStyle(color: Color(0xFFD70000)),
                               ),
                             ),
                           ),
@@ -1416,7 +1416,7 @@ class _Northwest3x3State extends State<Northwest3x3> {
                               alignment: Alignment.centerRight,
                               child: Text(
                                 "$_default31",
-                                style: TextStyle(color: Colors.red),
+                                style: TextStyle(color: Color(0xFFD70000)),
                               ),
                             ),
                           ),
@@ -1433,7 +1433,7 @@ class _Northwest3x3State extends State<Northwest3x3> {
                               alignment: Alignment.centerRight,
                               child: Text(
                                 "$_default32",
-                                style: TextStyle(color: Colors.red),
+                                style: TextStyle(color: Color(0xFFD70000)),
                               ),
                             ),
                           ),
@@ -1450,7 +1450,7 @@ class _Northwest3x3State extends State<Northwest3x3> {
                               alignment: Alignment.centerRight,
                               child: Text(
                                 "$_default33",
-                                style: TextStyle(color: Colors.red),
+                                style: TextStyle(color: Color(0xFFD70000)),
                               ),
                             ),
                           ),
@@ -1467,7 +1467,7 @@ class _Northwest3x3State extends State<Northwest3x3> {
                               alignment: Alignment.centerRight,
                               child: Text(
                                 "0",
-                                style: TextStyle(color: Colors.red),
+                                style: TextStyle(color: Color(0xFFD70000)),
                               ),
                             ),
                           ),
@@ -1586,7 +1586,7 @@ class _Northwest3x3State extends State<Northwest3x3> {
                               alignment: Alignment.centerRight,
                               child: Text(
                                 "$_default11",
-                                style: TextStyle(color: Colors.red),
+                                style: TextStyle(color: Color(0xFFD70000)),
                               ),
                             ),
                           ),
@@ -1603,7 +1603,7 @@ class _Northwest3x3State extends State<Northwest3x3> {
                               alignment: Alignment.centerRight,
                               child: Text(
                                 "$_default12",
-                                style: TextStyle(color: Colors.red),
+                                style: TextStyle(color: Color(0xFFD70000)),
                               ),
                             ),
                           ),
@@ -1620,7 +1620,7 @@ class _Northwest3x3State extends State<Northwest3x3> {
                                 alignment: Alignment.centerRight,
                                 child: Text(
                                   "$_default13",
-                                  style: TextStyle(color: Colors.red),
+                                  style: TextStyle(color: Color(0xFFD70000)),
                                 ),
                               ),
                             )),
@@ -1651,7 +1651,7 @@ class _Northwest3x3State extends State<Northwest3x3> {
                               alignment: Alignment.centerRight,
                               child: Text(
                                 "$_default21",
-                                style: TextStyle(color: Colors.red),
+                                style: TextStyle(color: Color(0xFFD70000)),
                               ),
                             ),
                           ),
@@ -1668,7 +1668,7 @@ class _Northwest3x3State extends State<Northwest3x3> {
                               alignment: Alignment.centerRight,
                               child: Text(
                                 "$_default22",
-                                style: TextStyle(color: Colors.red),
+                                style: TextStyle(color: Color(0xFFD70000)),
                               ),
                             ),
                           ),
@@ -1685,7 +1685,7 @@ class _Northwest3x3State extends State<Northwest3x3> {
                               alignment: Alignment.centerRight,
                               child: Text(
                                 "$_default23",
-                                style: TextStyle(color: Colors.red),
+                                style: TextStyle(color: Color(0xFFD70000)),
                               ),
                             ),
                           ),
@@ -1717,7 +1717,7 @@ class _Northwest3x3State extends State<Northwest3x3> {
                               alignment: Alignment.centerRight,
                               child: Text(
                                 "$_default31",
-                                style: TextStyle(color: Colors.red),
+                                style: TextStyle(color: Color(0xFFD70000)),
                               ),
                             ),
                           ),
@@ -1734,7 +1734,7 @@ class _Northwest3x3State extends State<Northwest3x3> {
                               alignment: Alignment.centerRight,
                               child: Text(
                                 "$_default32",
-                                style: TextStyle(color: Colors.red),
+                                style: TextStyle(color: Color(0xFFD70000)),
                               ),
                             ),
                           ),
@@ -1751,7 +1751,7 @@ class _Northwest3x3State extends State<Northwest3x3> {
                               alignment: Alignment.centerRight,
                               child: Text(
                                 "$_default33",
-                                style: TextStyle(color: Colors.red),
+                                style: TextStyle(color: Color(0xFFD70000)),
                               ),
                             ),
                           ),
@@ -1783,7 +1783,7 @@ class _Northwest3x3State extends State<Northwest3x3> {
                               alignment: Alignment.centerRight,
                               child: Text(
                                 "0",
-                                style: TextStyle(color: Colors.red),
+                                style: TextStyle(color: Color(0xFFD70000)),
                               ),
                             ),
                           ),
@@ -1802,7 +1802,7 @@ class _Northwest3x3State extends State<Northwest3x3> {
                               alignment: Alignment.centerRight,
                               child: Text(
                                 "0",
-                                style: TextStyle(color: Colors.red),
+                                style: TextStyle(color: Color(0xFFD70000)),
                               ),
                             ),
                           ),
@@ -1821,7 +1821,7 @@ class _Northwest3x3State extends State<Northwest3x3> {
                               alignment: Alignment.centerRight,
                               child: Text(
                                 "0",
-                                style: TextStyle(color: Colors.red),
+                                style: TextStyle(color: Color(0xFFD70000)),
                               ),
                             ),
                           ),
