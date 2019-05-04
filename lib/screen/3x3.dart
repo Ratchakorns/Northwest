@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gradient_text/gradient_text.dart';
 
 class Northwest3x3 extends StatefulWidget {
   Northwest3x3({Key key, this.title}) : super(key: key);
@@ -73,12 +74,35 @@ class _Northwest3x3State extends State<Northwest3x3> {
   TextEditingController _total33Controller = new TextEditingController();
 
   bool isOpenTable = false, isOpenTotal = false, isCloseTable = true;
-
   void _cleardata() {
     setState(() {
       isOpenTable = false;
       isCloseTable = true;
       isOpenTotal = false;
+    });
+  }
+
+  void _reset() {
+    setState(() {
+      isOpenTable = false;
+      isCloseTable = true;
+      isOpenTotal = false;
+      _supplyaController.clear();
+      _supplybController.clear();
+      _supplycController.clear();
+      _demandaController.clear();
+      _demandbController.clear();
+      _demandcController.clear();
+      _total11Controller.clear();
+      _total12Controller.clear();
+      _total13Controller.clear();
+      _total21Controller.clear();
+      _total22Controller.clear();
+      _total23Controller.clear();
+      _total31Controller.clear();
+      _total32Controller.clear();
+      _total33Controller.clear();
+      total = null;
     });
   }
 
@@ -361,37 +385,59 @@ class _Northwest3x3State extends State<Northwest3x3> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: new AppBar(
-          title: new Text('3x3'),
-          centerTitle: true,
-          elevation: 0.0,
-          backgroundColor: Color.fromRGBO(99, 138, 223, 1.0),
+    return Stack(children: <Widget>[
+      Container(
+        height: double.infinity,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            stops: [0.0, 0.5, 1.0],
+            colors: [
+              Color(0xFFD16BA5),
+              Color(0xFF86A8E7),
+              Color(0xFF5FFBF1),
+            ],
+          ),
         ),
-        backgroundColor: Colors.white,
-        body: new GestureDetector(
-          onTap: () {
-            FocusScope.of(context).requestFocus(new FocusNode());
-          },
-          child: new Container(
-              color: Colors.white,
-              child: SingleChildScrollView(
-                  child: Padding(
-                padding: EdgeInsets.all(10),
-                child: Container(
-                  decoration: new BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                      border: new Border.all(
-                          color: Color.fromRGBO(99, 138, 223, 1.0), width: 3)),
-                  child: Column(
-                    children: <Widget>[
-                      isCloseTable ? closetable() : Container(),
-                      isOpenTable ? table() : Container()
-                    ],
-                  ),
+      ),
+      Scaffold(
+          appBar: AppBar(
+            leading: new IconButton(
+              icon: new Icon(Icons.arrow_back, color: Colors.black),
+              onPressed: () => Navigator.of(context).pop(),
+            ),
+            title: new Text(
+              "3X3",
+              style: TextStyle(color: Colors.black, fontFamily: 'PromptBold'),
+            ),
+            centerTitle: true,
+            backgroundColor: Colors.transparent,
+            elevation: 0.0,
+          ),
+          backgroundColor: Colors.transparent,
+          body: GestureDetector(
+            onTap: () {
+              FocusScope.of(context).requestFocus(new FocusNode());
+            },
+            child: new Container(
+                child: SingleChildScrollView(
+                    child: Padding(
+              padding: EdgeInsets.all(10),
+              child: Container(
+                decoration: new BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                    border: new Border.all(width: 3)),
+                child: Column(
+                  children: <Widget>[
+                    isCloseTable ? closetable() : Container(),
+                    isOpenTable ? table() : Container()
+                  ],
                 ),
-              ))),
-        ));
+              ),
+            ))),
+          )),
+    ]);
   }
 
   Widget closetable() {
@@ -424,13 +470,14 @@ class _Northwest3x3State extends State<Northwest3x3> {
                   EdgeInsets.only(top: 20, bottom: 10, left: 10, right: 10),
               child: Table(
                   defaultVerticalAlignment: TableCellVerticalAlignment.middle,
-                  border:
-                      TableBorder.all(color: Color.fromRGBO(99, 138, 223, 1.0)),
+                  border: TableBorder.all(),
                   children: [
                     TableRow(children: [
                       Padding(
                           padding: EdgeInsets.only(top: 10, bottom: 10),
-                          child: Icon(Icons.star)),
+                          child: Icon(
+                            Icons.star,
+                          )),
                       Text(
                         'a',
                         textAlign: TextAlign.center,
@@ -464,6 +511,7 @@ class _Northwest3x3State extends State<Northwest3x3> {
                       Container(
                         width: 100,
                         child: TextField(
+                          cursorColor: Colors.black,
                           controller: _total11Controller,
                           textAlign: TextAlign.center,
                           keyboardType: TextInputType.number,
@@ -472,6 +520,7 @@ class _Northwest3x3State extends State<Northwest3x3> {
                       Container(
                         width: 100,
                         child: TextField(
+                          cursorColor: Colors.black,
                           controller: _total12Controller,
                           textAlign: TextAlign.center,
                           keyboardType: TextInputType.number,
@@ -480,6 +529,7 @@ class _Northwest3x3State extends State<Northwest3x3> {
                       Container(
                         width: 100,
                         child: TextField(
+                          cursorColor: Colors.black,
                           controller: _total13Controller,
                           textAlign: TextAlign.center,
                           keyboardType: TextInputType.number,
@@ -488,6 +538,7 @@ class _Northwest3x3State extends State<Northwest3x3> {
                       Container(
                         width: 100,
                         child: TextField(
+                          cursorColor: Colors.black,
                           controller: _supplyaController,
                           textAlign: TextAlign.center,
                           keyboardType: TextInputType.number,
@@ -506,6 +557,7 @@ class _Northwest3x3State extends State<Northwest3x3> {
                       Container(
                         width: 100,
                         child: TextField(
+                          cursorColor: Colors.black,
                           controller: _total21Controller,
                           textAlign: TextAlign.center,
                           keyboardType: TextInputType.number,
@@ -514,6 +566,7 @@ class _Northwest3x3State extends State<Northwest3x3> {
                       Container(
                         width: 100,
                         child: TextField(
+                          cursorColor: Colors.black,
                           controller: _total22Controller,
                           textAlign: TextAlign.center,
                           keyboardType: TextInputType.number,
@@ -522,6 +575,7 @@ class _Northwest3x3State extends State<Northwest3x3> {
                       Container(
                         width: 100,
                         child: TextField(
+                          cursorColor: Colors.black,
                           controller: _total23Controller,
                           textAlign: TextAlign.center,
                           keyboardType: TextInputType.number,
@@ -530,6 +584,7 @@ class _Northwest3x3State extends State<Northwest3x3> {
                       Container(
                         width: 100,
                         child: TextField(
+                          cursorColor: Colors.black,
                           controller: _supplybController,
                           textAlign: TextAlign.center,
                           keyboardType: TextInputType.number,
@@ -548,6 +603,7 @@ class _Northwest3x3State extends State<Northwest3x3> {
                       Container(
                         width: 100,
                         child: TextField(
+                          cursorColor: Colors.black,
                           controller: _total31Controller,
                           textAlign: TextAlign.center,
                           keyboardType: TextInputType.number,
@@ -556,6 +612,7 @@ class _Northwest3x3State extends State<Northwest3x3> {
                       Container(
                         width: 100,
                         child: TextField(
+                          cursorColor: Colors.black,
                           controller: _total32Controller,
                           textAlign: TextAlign.center,
                           keyboardType: TextInputType.number,
@@ -564,6 +621,7 @@ class _Northwest3x3State extends State<Northwest3x3> {
                       Container(
                         width: 100,
                         child: TextField(
+                          cursorColor: Colors.black,
                           controller: _total33Controller,
                           textAlign: TextAlign.center,
                           keyboardType: TextInputType.number,
@@ -572,6 +630,7 @@ class _Northwest3x3State extends State<Northwest3x3> {
                       Container(
                         width: 100,
                         child: TextField(
+                          cursorColor: Colors.black,
                           controller: _supplycController,
                           textAlign: TextAlign.center,
                           keyboardType: TextInputType.number,
@@ -590,6 +649,7 @@ class _Northwest3x3State extends State<Northwest3x3> {
                       Container(
                         width: 100,
                         child: TextField(
+                          cursorColor: Colors.black,
                           controller: _demandaController,
                           textAlign: TextAlign.center,
                           keyboardType: TextInputType.number,
@@ -598,6 +658,7 @@ class _Northwest3x3State extends State<Northwest3x3> {
                       Container(
                         width: 100,
                         child: TextField(
+                          cursorColor: Colors.black,
                           controller: _demandbController,
                           textAlign: TextAlign.center,
                           keyboardType: TextInputType.number,
@@ -606,26 +667,28 @@ class _Northwest3x3State extends State<Northwest3x3> {
                       Container(
                         width: 100,
                         child: TextField(
+                          cursorColor: Colors.black,
                           controller: _demandcController,
                           textAlign: TextAlign.center,
                           keyboardType: TextInputType.number,
                         ),
                       ),
-                      Text(
-                        '$total',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(fontFamily: 'PromptBold'),
-                      ),
+                      Icon(Icons.not_interested)
                     ]),
                   ]),
             ),
             Padding(
               padding: EdgeInsets.only(top: 0, bottom: 10),
               child: RaisedButton(
-                child: Text(
-                  'กดเพื่อสร้างตาราง',
-                  style: TextStyle(fontSize: 24),
-                ),
+                color: Colors.black,
+                child: GradientText("กดเพื่อสร้างตาราง",
+                    gradient: LinearGradient(colors: [
+                      Color(0xFFD16BA5),
+                      Color(0xFF86A8E7),
+                      Color(0xFF5FFBF1),
+                    ]),
+                    style: TextStyle(fontSize: 24),
+                    textAlign: TextAlign.center),
                 onPressed: _incrementCounter,
               ),
             ),
@@ -665,15 +728,40 @@ class _Northwest3x3State extends State<Northwest3x3> {
                   'ผลลัพธ์ = $total',
                   style: TextStyle(fontFamily: 'PromptBold', fontSize: 24),
                 ),
-                Padding(
-                  padding: EdgeInsets.only(top: 10),
-                  child: RaisedButton(
-                    child: Text(
-                      'ย้อนกลับ',
-                      style: TextStyle(fontSize: 24),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    ButtonTheme(
+                      minWidth: 150,
+                      child: RaisedButton(
+                        color: Colors.black,
+                        child: GradientText("ย้อนกลับ",
+                            gradient: LinearGradient(colors: [
+                              Color(0xFFD16BA5),
+                              Color(0xFF86A8E7),
+                              Color(0xFF5FFBF1),
+                            ]),
+                            style: TextStyle(fontSize: 24),
+                            textAlign: TextAlign.center),
+                        onPressed: _cleardata,
+                      ),
                     ),
-                    onPressed: _cleardata,
-                  ),
+                    ButtonTheme(
+                      minWidth: 150,
+                      child: RaisedButton(
+                        color: Colors.black,
+                        child: GradientText("เริ่มต้นใหม่",
+                            gradient: LinearGradient(colors: [
+                              Color(0xFFD16BA5),
+                              Color(0xFF86A8E7),
+                              Color(0xFF5FFBF1),
+                            ]),
+                            style: TextStyle(fontSize: 24),
+                            textAlign: TextAlign.center),
+                        onPressed: _reset,
+                      ),
+                    )
+                  ],
                 )
               ],
             )));
@@ -709,15 +797,40 @@ class _Northwest3x3State extends State<Northwest3x3> {
                   'ผลลัพธ์ = $total',
                   style: TextStyle(fontFamily: 'PromptBold', fontSize: 24),
                 ),
-                Padding(
-                  padding: EdgeInsets.only(top: 10),
-                  child: RaisedButton(
-                    child: Text(
-                      'ย้อนกลับ',
-                      style: TextStyle(fontSize: 24),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    ButtonTheme(
+                      minWidth: 150,
+                      child: RaisedButton(
+                        color: Colors.black,
+                        child: GradientText("ย้อนกลับ",
+                            gradient: LinearGradient(colors: [
+                              Color(0xFFD16BA5),
+                              Color(0xFF86A8E7),
+                              Color(0xFF5FFBF1),
+                            ]),
+                            style: TextStyle(fontSize: 24),
+                            textAlign: TextAlign.center),
+                        onPressed: _cleardata,
+                      ),
                     ),
-                    onPressed: _cleardata,
-                  ),
+                    ButtonTheme(
+                      minWidth: 150,
+                      child: RaisedButton(
+                        color: Colors.black,
+                        child: GradientText("เริ่มต้นใหม่",
+                            gradient: LinearGradient(colors: [
+                              Color(0xFFD16BA5),
+                              Color(0xFF86A8E7),
+                              Color(0xFF5FFBF1),
+                            ]),
+                            style: TextStyle(fontSize: 24),
+                            textAlign: TextAlign.center),
+                        onPressed: _reset,
+                      ),
+                    )
+                  ],
                 )
               ],
             )));
@@ -753,15 +866,40 @@ class _Northwest3x3State extends State<Northwest3x3> {
                   'ผลลัพธ์ = $total',
                   style: TextStyle(fontFamily: 'PromptBold', fontSize: 24),
                 ),
-                Padding(
-                  padding: EdgeInsets.only(top: 10),
-                  child: RaisedButton(
-                    child: Text(
-                      'ย้อนกลับ',
-                      style: TextStyle(fontSize: 24),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    ButtonTheme(
+                      minWidth: 150,
+                      child: RaisedButton(
+                        color: Colors.black,
+                        child: GradientText("ย้อนกลับ",
+                            gradient: LinearGradient(colors: [
+                              Color(0xFFD16BA5),
+                              Color(0xFF86A8E7),
+                              Color(0xFF5FFBF1),
+                            ]),
+                            style: TextStyle(fontSize: 24),
+                            textAlign: TextAlign.center),
+                        onPressed: _cleardata,
+                      ),
                     ),
-                    onPressed: _cleardata,
-                  ),
+                    ButtonTheme(
+                      minWidth: 150,
+                      child: RaisedButton(
+                        color: Colors.black,
+                        child: GradientText("เริ่มต้นใหม่",
+                            gradient: LinearGradient(colors: [
+                              Color(0xFFD16BA5),
+                              Color(0xFF86A8E7),
+                              Color(0xFF5FFBF1),
+                            ]),
+                            style: TextStyle(fontSize: 24),
+                            textAlign: TextAlign.center),
+                        onPressed: _reset,
+                      ),
+                    )
+                  ],
                 )
               ],
             )));
@@ -782,13 +920,14 @@ class _Northwest3x3State extends State<Northwest3x3> {
             padding: EdgeInsets.all(10),
             child: Table(
                 defaultVerticalAlignment: TableCellVerticalAlignment.middle,
-                border:
-                    TableBorder.all(color: Color.fromRGBO(99, 138, 223, 1.0)),
+                border: TableBorder.all(),
                 children: [
                   TableRow(children: [
                     Padding(
                         padding: EdgeInsets.only(top: 10, bottom: 10),
-                        child: Icon(Icons.star)),
+                        child: Icon(
+                          Icons.star,
+                        )),
                     Text(
                       'a',
                       textAlign: TextAlign.center,
@@ -1056,13 +1195,14 @@ class _Northwest3x3State extends State<Northwest3x3> {
             padding: EdgeInsets.all(10),
             child: Table(
                 defaultVerticalAlignment: TableCellVerticalAlignment.middle,
-                border:
-                    TableBorder.all(color: Color.fromRGBO(99, 138, 223, 1.0)),
+                border: TableBorder.all(),
                 children: [
                   TableRow(children: [
                     Padding(
                         padding: EdgeInsets.only(top: 10, bottom: 10),
-                        child: Icon(Icons.star)),
+                        child: Icon(
+                          Icons.star,
+                        )),
                     Text(
                       'a',
                       textAlign: TextAlign.center,
@@ -1399,13 +1539,14 @@ class _Northwest3x3State extends State<Northwest3x3> {
             padding: EdgeInsets.all(10),
             child: Table(
                 defaultVerticalAlignment: TableCellVerticalAlignment.middle,
-                border:
-                    TableBorder.all(color: Color.fromRGBO(99, 138, 223, 1.0)),
+                border: TableBorder.all(),
                 children: [
                   TableRow(children: [
                     Padding(
                         padding: EdgeInsets.only(top: 10, bottom: 10),
-                        child: Icon(Icons.star)),
+                        child: Icon(
+                          Icons.star,
+                        )),
                     Text(
                       'a',
                       textAlign: TextAlign.center,
