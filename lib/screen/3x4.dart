@@ -37,10 +37,10 @@ class _Northwest3x4State extends State<Northwest3x4> {
       _total32,
       _total33,
       _total34,
-      _total41,
-      _total42,
-      _total43,
-      _total44,
+      // _total41,
+      // _total42,
+      // _total43,
+      // _total44,
       _mattrix11 = 0,
       _mattrix12 = 0,
       _mattrix13 = 0,
@@ -372,7 +372,7 @@ class _Northwest3x4State extends State<Northwest3x4> {
     }
     if (_mattrix33 == 0) {
       setState(() {
-        if (_mattrix32 == 0) {
+        if (_mattrix31  + _mattrix32 == 0) {
           if (demandc - (_mattrix13 + _mattrix23) > supplyc) {
             _mattrix33 = supplyc;
           } else {
@@ -389,7 +389,7 @@ class _Northwest3x4State extends State<Northwest3x4> {
     }
     if (_mattrix34 == 0) {
       setState(() {
-        if (_mattrix33 == 0) {
+        if (_mattrix31 + _mattrix32 + _mattrix33 == 0) {
           if (demandd - (_mattrix14 + _mattrix24 ) > supplyc) {
             _mattrix34 = supplyc;
           } else {
