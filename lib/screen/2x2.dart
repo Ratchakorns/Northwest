@@ -69,7 +69,6 @@ class _Northwest2x2State extends State<Northwest2x2> {
       _total12Controller.clear();
       _total21Controller.clear();
       _total22Controller.clear();
-
       total = null;
     });
   }
