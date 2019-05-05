@@ -12,8 +12,8 @@ dependencies:
   flutter_launcher_icons: "^0.7.0"
 
 flutter_icons:
-  image_path_android: "lib/assets/icons/icon.png"
-  image_path_ios: "lib/assets/icons/icon.png"
+  image_path_android: "lib/assets/icons/newicon.png"
+  image_path_ios: "lib/assets/icons/newicon.png"
   android: true 
   ios: true 
 
@@ -25,7 +25,7 @@ flutter:
   uses-material-design: true
 
   assets:
-   - lib/assets/icons/icon.png
+   - lib/assets/icons/newicon.png
 
   fonts:
     - family: Prompt
