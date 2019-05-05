@@ -857,7 +857,11 @@ class _Northwest3x3State extends State<Northwest3x3> {
                       style: TextStyle(fontSize: 16),
                     ),
                     Text(
-                      '($_mattrix31*$_default31) + ($_mattrix32*$_default32) + ($_mattrix33*$_default33) ',
+                      '($_mattrix31*$_default31) + ($_mattrix32*$_default32) + ($_mattrix33*$_default33) + ',
+                      style: TextStyle(fontSize: 16),
+                    ),
+                    Text(
+                      '($_dumdemanda*0) + ($_dumdemandb*0) + ($_dumdemandc*0) ',
                       style: TextStyle(fontSize: 16),
                     )
                   ],
