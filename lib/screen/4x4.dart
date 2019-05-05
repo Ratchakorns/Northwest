@@ -372,7 +372,7 @@ class _Northwest4x4State extends State<Northwest4x4> {
     }
     if (_mattrix33 == 0) {
       setState(() {
-        if (_mattrix32 == 0) {
+        if (_mattrix31 + _mattrix32 == 0) {//เพิ่ม
           if (demandc - (_mattrix13 + _mattrix23) > supplyc) {
             _mattrix33 = supplyc;
           } else {
@@ -389,7 +389,7 @@ class _Northwest4x4State extends State<Northwest4x4> {
     }
     if (_mattrix34 == 0) {
       setState(() {
-        if (_mattrix24 == 0) {
+        if ( _mattrix14 + _mattrix24 == 0) {//เพิ่ม
           if (supplyc - (_mattrix31 + _mattrix32 + _mattrix33) > demandd) {
             _mattrix34 = demandd;
           } else {
@@ -436,7 +436,7 @@ class _Northwest4x4State extends State<Northwest4x4> {
     }
     if (_mattrix43 == 0) {
       setState(() {
-        if (_mattrix42 == 0) {
+        if (_mattrix41 + _mattrix42 == 0) { //เพิ่ม
           if (demandc - (_mattrix13 + _mattrix23 + _mattrix33) > supplyd) {
             _mattrix43 = supplyd;
           } else {
@@ -453,7 +453,7 @@ class _Northwest4x4State extends State<Northwest4x4> {
     }
     if (_mattrix44 == 0) {
       setState(() {
-        if (_mattrix34 == 0) {
+        if (_mattrix14 + _mattrix24 + _mattrix34 == 0) { //เพิ่ม
           if (supplyd - (_mattrix41 + _mattrix42 + _mattrix43) > demandd) {
             _mattrix44 = demandd;
           } else {
