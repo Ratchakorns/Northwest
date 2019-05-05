@@ -57,7 +57,9 @@ class _MyHomePageState extends State<MyHomePage> {
                             padding: EdgeInsets.only(top: 20),
                             child: Card(
                                 child: InkWell(
-                              onTap: () {},
+                              onTap: () {
+                                Navigator.pushNamed(context, '/2x2');
+                              },
                               child: Container(
                                 child: Column(
                                   mainAxisSize: MainAxisSize.min,
@@ -77,7 +79,9 @@ class _MyHomePageState extends State<MyHomePage> {
                           ),
                           Card(
                               child: InkWell(
-                            onTap: () {},
+                            onTap: () {
+                              Navigator.pushNamed(context, '/2x3');
+                            },
                             child: Container(
                               child: Column(
                                 mainAxisSize: MainAxisSize.min,
