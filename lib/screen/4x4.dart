@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gradient_text/gradient_text.dart';
 
 class Northwest4x4 extends StatefulWidget {
   Northwest4x4({Key key, this.title}) : super(key: key);
@@ -372,7 +373,8 @@ class _Northwest4x4State extends State<Northwest4x4> {
     }
     if (_mattrix33 == 0) {
       setState(() {
-        if (_mattrix31 + _mattrix32 == 0) {//เพิ่ม
+        if (_mattrix31 + _mattrix32 == 0) {
+          //เพิ่ม
           if (demandc - (_mattrix13 + _mattrix23) > supplyc) {
             _mattrix33 = supplyc;
           } else {
@@ -389,7 +391,8 @@ class _Northwest4x4State extends State<Northwest4x4> {
     }
     if (_mattrix34 == 0) {
       setState(() {
-        if ( _mattrix14 + _mattrix24 == 0) {//เพิ่ม
+        if (_mattrix14 + _mattrix24 == 0) {
+          //เพิ่ม
           if (supplyc - (_mattrix31 + _mattrix32 + _mattrix33) > demandd) {
             _mattrix34 = demandd;
           } else {
@@ -436,7 +439,8 @@ class _Northwest4x4State extends State<Northwest4x4> {
     }
     if (_mattrix43 == 0) {
       setState(() {
-        if (_mattrix41 + _mattrix42 == 0) { //เพิ่ม
+        if (_mattrix41 + _mattrix42 == 0) {
+          //เพิ่ม
           if (demandc - (_mattrix13 + _mattrix23 + _mattrix33) > supplyd) {
             _mattrix43 = supplyd;
           } else {
@@ -453,7 +457,8 @@ class _Northwest4x4State extends State<Northwest4x4> {
     }
     if (_mattrix44 == 0) {
       setState(() {
-        if (_mattrix14 + _mattrix24 + _mattrix34 == 0) { //เพิ่ม
+        if (_mattrix14 + _mattrix24 + _mattrix34 == 0) {
+          //เพิ่ม
           if (supplyd - (_mattrix41 + _mattrix42 + _mattrix43) > demandd) {
             _mattrix44 = demandd;
           } else {
@@ -603,37 +608,60 @@ class _Northwest4x4State extends State<Northwest4x4> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: new AppBar(
-          title: new Text('4x4'),
-          centerTitle: true,
-          elevation: 0.0,
-          backgroundColor: Color.fromRGBO(99, 138, 223, 1.0),
+    return Stack(children: <Widget>[
+      Container(
+        height: double.infinity,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            stops: [0.0, 0.66, 1.0],
+            colors: [
+              Color(0xFFD16BA5),
+              Color(0xFF86A8E7),
+              Color(0xFF5FFBF1),
+            ],
+          ),
         ),
-        backgroundColor: Colors.white,
-        body: new GestureDetector(
-          onTap: () {
-            FocusScope.of(context).requestFocus(new FocusNode());
-          },
-          child: new Container(
-              color: Colors.white,
-              child: SingleChildScrollView(
-                  child: Padding(
-                padding: EdgeInsets.all(10),
-                child: Container(
-                  decoration: new BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                      border: new Border.all(
-                          color: Color.fromRGBO(99, 138, 223, 1.0), width: 3)),
-                  child: Column(
-                    children: <Widget>[
-                      isCloseTable ? closetable() : Container(),
-                      isOpenTable ? table() : Container()
-                    ],
-                  ),
+      ),
+      Scaffold(
+          appBar: AppBar(
+            leading: new IconButton(
+              icon: new Icon(Icons.arrow_back, color: Colors.black),
+              onPressed: () => Navigator.of(context).pop(),
+            ),
+            title: new Text(
+              "4X4",
+              style: TextStyle(color: Colors.black, fontFamily: 'PromptBold'),
+            ),
+            centerTitle: true,
+            backgroundColor: Colors.transparent,
+            elevation: 0.0,
+          ),
+          backgroundColor: Colors.transparent,
+          body: GestureDetector(
+            onTap: () {
+              FocusScope.of(context).requestFocus(new FocusNode());
+            },
+            child: new Container(
+                child: SingleChildScrollView(
+                    child: Padding(
+              padding: EdgeInsets.all(10),
+              child: Container(
+                decoration: new BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                    border: new Border.all(
+                        color: Colors.black, width: 3)),
+                child: Column(
+                  children: <Widget>[
+                    isCloseTable ? closetable() : Container(),
+                    isOpenTable ? table() : Container()
+                  ],
                 ),
-              ))),
-        ));
+              ),
+            ))),
+          )),
+    ]);
   }
 
   Widget closetable() {
@@ -667,7 +695,7 @@ class _Northwest4x4State extends State<Northwest4x4> {
               child: Table(
                   defaultVerticalAlignment: TableCellVerticalAlignment.middle,
                   border:
-                      TableBorder.all(color: Color.fromRGBO(99, 138, 223, 1.0)),
+                      TableBorder.all(color: Colors.black),
                   children: [
                     TableRow(children: [
                       Padding(
@@ -694,7 +722,7 @@ class _Northwest4x4State extends State<Northwest4x4> {
                         style: TextStyle(fontFamily: 'PromptBold'),
                       ),
                       Text(
-                        'sup',
+                        'Sup',
                         textAlign: TextAlign.center,
                         style: TextStyle(fontFamily: 'PromptBold'),
                       ),
@@ -711,6 +739,7 @@ class _Northwest4x4State extends State<Northwest4x4> {
                       Container(
                         width: 100,
                         child: TextField(
+                          cursorColor: Colors.black,
                           controller: _total11Controller,
                           textAlign: TextAlign.center,
                           keyboardType: TextInputType.number,
@@ -719,6 +748,7 @@ class _Northwest4x4State extends State<Northwest4x4> {
                       Container(
                         width: 100,
                         child: TextField(
+                          cursorColor: Colors.black,
                           controller: _total12Controller,
                           textAlign: TextAlign.center,
                           keyboardType: TextInputType.number,
@@ -727,6 +757,7 @@ class _Northwest4x4State extends State<Northwest4x4> {
                       Container(
                         width: 100,
                         child: TextField(
+                          cursorColor: Colors.black,
                           controller: _total13Controller,
                           textAlign: TextAlign.center,
                           keyboardType: TextInputType.number,
@@ -735,6 +766,7 @@ class _Northwest4x4State extends State<Northwest4x4> {
                       Container(
                         width: 100,
                         child: TextField(
+                          cursorColor: Colors.black,
                           controller: _total14Controller,
                           textAlign: TextAlign.center,
                           keyboardType: TextInputType.number,
@@ -743,6 +775,7 @@ class _Northwest4x4State extends State<Northwest4x4> {
                       Container(
                         width: 100,
                         child: TextField(
+                          cursorColor: Colors.black,
                           controller: _supplyaController,
                           textAlign: TextAlign.center,
                           keyboardType: TextInputType.number,
@@ -761,6 +794,7 @@ class _Northwest4x4State extends State<Northwest4x4> {
                       Container(
                         width: 100,
                         child: TextField(
+                          cursorColor: Colors.black,
                           controller: _total21Controller,
                           textAlign: TextAlign.center,
                           keyboardType: TextInputType.number,
@@ -769,6 +803,7 @@ class _Northwest4x4State extends State<Northwest4x4> {
                       Container(
                         width: 100,
                         child: TextField(
+                          cursorColor: Colors.black,
                           controller: _total22Controller,
                           textAlign: TextAlign.center,
                           keyboardType: TextInputType.number,
@@ -777,6 +812,7 @@ class _Northwest4x4State extends State<Northwest4x4> {
                       Container(
                         width: 100,
                         child: TextField(
+                          cursorColor: Colors.black,
                           controller: _total23Controller,
                           textAlign: TextAlign.center,
                           keyboardType: TextInputType.number,
@@ -785,6 +821,7 @@ class _Northwest4x4State extends State<Northwest4x4> {
                       Container(
                         width: 100,
                         child: TextField(
+                          cursorColor: Colors.black,
                           controller: _total24Controller,
                           textAlign: TextAlign.center,
                           keyboardType: TextInputType.number,
@@ -793,6 +830,7 @@ class _Northwest4x4State extends State<Northwest4x4> {
                       Container(
                         width: 100,
                         child: TextField(
+                          cursorColor: Colors.black,
                           controller: _supplybController,
                           textAlign: TextAlign.center,
                           keyboardType: TextInputType.number,
@@ -811,6 +849,7 @@ class _Northwest4x4State extends State<Northwest4x4> {
                       Container(
                         width: 100,
                         child: TextField(
+                          cursorColor: Colors.black,
                           controller: _total31Controller,
                           textAlign: TextAlign.center,
                           keyboardType: TextInputType.number,
@@ -819,6 +858,7 @@ class _Northwest4x4State extends State<Northwest4x4> {
                       Container(
                         width: 100,
                         child: TextField(
+                          cursorColor: Colors.black,
                           controller: _total32Controller,
                           textAlign: TextAlign.center,
                           keyboardType: TextInputType.number,
@@ -827,6 +867,7 @@ class _Northwest4x4State extends State<Northwest4x4> {
                       Container(
                         width: 100,
                         child: TextField(
+                          cursorColor: Colors.black,
                           controller: _total33Controller,
                           textAlign: TextAlign.center,
                           keyboardType: TextInputType.number,
@@ -835,6 +876,7 @@ class _Northwest4x4State extends State<Northwest4x4> {
                       Container(
                         width: 100,
                         child: TextField(
+                          cursorColor: Colors.black,
                           controller: _total34Controller,
                           textAlign: TextAlign.center,
                           keyboardType: TextInputType.number,
@@ -843,6 +885,7 @@ class _Northwest4x4State extends State<Northwest4x4> {
                       Container(
                         width: 100,
                         child: TextField(
+                          cursorColor: Colors.black,
                           controller: _supplycController,
                           textAlign: TextAlign.center,
                           keyboardType: TextInputType.number,
@@ -861,6 +904,7 @@ class _Northwest4x4State extends State<Northwest4x4> {
                       Container(
                         width: 100,
                         child: TextField(
+                          cursorColor: Colors.black,
                           controller: _total41Controller,
                           textAlign: TextAlign.center,
                           keyboardType: TextInputType.number,
@@ -869,6 +913,7 @@ class _Northwest4x4State extends State<Northwest4x4> {
                       Container(
                         width: 100,
                         child: TextField(
+                          cursorColor: Colors.black,
                           controller: _total42Controller,
                           textAlign: TextAlign.center,
                           keyboardType: TextInputType.number,
@@ -877,6 +922,7 @@ class _Northwest4x4State extends State<Northwest4x4> {
                       Container(
                         width: 100,
                         child: TextField(
+                          cursorColor: Colors.black,
                           controller: _total43Controller,
                           textAlign: TextAlign.center,
                           keyboardType: TextInputType.number,
@@ -885,6 +931,7 @@ class _Northwest4x4State extends State<Northwest4x4> {
                       Container(
                         width: 100,
                         child: TextField(
+                          cursorColor: Colors.black,
                           controller: _total44Controller,
                           textAlign: TextAlign.center,
                           keyboardType: TextInputType.number,
@@ -893,6 +940,7 @@ class _Northwest4x4State extends State<Northwest4x4> {
                       Container(
                         width: 100,
                         child: TextField(
+                          cursorColor: Colors.black,
                           controller: _supplydController,
                           textAlign: TextAlign.center,
                           keyboardType: TextInputType.number,
@@ -911,6 +959,7 @@ class _Northwest4x4State extends State<Northwest4x4> {
                       Container(
                         width: 100,
                         child: TextField(
+                          cursorColor: Colors.black,
                           controller: _demandaController,
                           textAlign: TextAlign.center,
                           keyboardType: TextInputType.number,
@@ -919,6 +968,7 @@ class _Northwest4x4State extends State<Northwest4x4> {
                       Container(
                         width: 100,
                         child: TextField(
+                          cursorColor: Colors.black,
                           controller: _demandbController,
                           textAlign: TextAlign.center,
                           keyboardType: TextInputType.number,
@@ -927,6 +977,7 @@ class _Northwest4x4State extends State<Northwest4x4> {
                       Container(
                         width: 100,
                         child: TextField(
+                          cursorColor: Colors.black,
                           controller: _demandcController,
                           textAlign: TextAlign.center,
                           keyboardType: TextInputType.number,
@@ -935,37 +986,29 @@ class _Northwest4x4State extends State<Northwest4x4> {
                       Container(
                         width: 100,
                         child: TextField(
+                          cursorColor: Colors.black,
                           controller: _demanddController,
                           textAlign: TextAlign.center,
                           keyboardType: TextInputType.number,
                         ),
                       ),
-                      Text(
-                        '$_dumdemandtotalall',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(fontFamily: 'PromptBold'),
-                      ),
+                      Icon(Icons.not_interested)
                     ]),
                   ]),
             ),
-            Padding(
+                        Padding(
               padding: EdgeInsets.only(top: 0, bottom: 10),
               child: RaisedButton(
-                child: Text(
-                  'กดเพื่อสร้างตาราง',
-                  style: TextStyle(fontSize: 24),
-                ),
+                color: Colors.black,
+                child: GradientText("กดเพื่อสร้างตาราง",
+                    gradient: LinearGradient(colors: [
+                      Color(0xFFD16BA5),
+                      Color(0xFF86A8E7),
+                      Color(0xFF5FFBF1),
+                    ]),
+                    style: TextStyle(fontSize: 24),
+                    textAlign: TextAlign.center),
                 onPressed: _incrementCounter,
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(top: 0, bottom: 10),
-              child: RaisedButton(
-                child: Text(
-                  'reset',
-                  style: TextStyle(fontSize: 24),
-                ),
-                onPressed: _reset,
               ),
             ),
           ],
@@ -999,7 +1042,7 @@ class _Northwest4x4State extends State<Northwest4x4> {
                       style: TextStyle(fontSize: 16),
                     ),
                     Text(
-                      '($_mattrix41*$_default41) + ($_mattrix42*$_default42) + ($_mattrix43*$_default43) + ($_mattrix44*$_default44)',
+                      '($_mattrix41*$_default41) + ($_mattrix42*$_default42) + ($_mattrix43*$_default43) + ($_mattrix44*$_default44) =',
                       style: TextStyle(fontSize: 16),
                     )
                   ],
@@ -1008,15 +1051,40 @@ class _Northwest4x4State extends State<Northwest4x4> {
                   'ผลลัพธ์ = $total',
                   style: TextStyle(fontFamily: 'PromptBold', fontSize: 24),
                 ),
-                Padding(
-                  padding: EdgeInsets.only(top: 10),
-                  child: RaisedButton(
-                    child: Text(
-                      'ย้อนกลับ',
-                      style: TextStyle(fontSize: 24),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    ButtonTheme(
+                      minWidth: 150,
+                      child: RaisedButton(
+                        color: Colors.black,
+                        child: GradientText("ย้อนกลับ",
+                            gradient: LinearGradient(colors: [
+                              Color(0xFFD16BA5),
+                              Color(0xFF86A8E7),
+                              Color(0xFF5FFBF1),
+                            ]),
+                            style: TextStyle(fontSize: 24),
+                            textAlign: TextAlign.center),
+                        onPressed: _cleardata,
+                      ),
                     ),
-                    onPressed: _cleardata,
-                  ),
+                    ButtonTheme(
+                      minWidth: 150,
+                      child: RaisedButton(
+                        color: Colors.black,
+                        child: GradientText("เริ่มต้นใหม่",
+                            gradient: LinearGradient(colors: [
+                              Color(0xFFD16BA5),
+                              Color(0xFF86A8E7),
+                              Color(0xFF5FFBF1),
+                            ]),
+                            style: TextStyle(fontSize: 24),
+                            textAlign: TextAlign.center),
+                        onPressed: _reset,
+                      ),
+                    )
+                  ],
                 )
               ],
             )));
@@ -1047,25 +1115,49 @@ class _Northwest4x4State extends State<Northwest4x4> {
                       style: TextStyle(fontSize: 16),
                     ),
                     Text(
-                      '($_mattrix41*$_default41) + ($_mattrix42*$_default42) + ($_mattrix43*$_default43)  + ($_mattrix44*$_default44) + ($_dumsupplyd*0) +',
+                      '($_mattrix41*$_default41) + ($_mattrix42*$_default42) + ($_mattrix43*$_default43)  + ($_mattrix44*$_default44) + ($_dumsupplyd*0) =',
                       style: TextStyle(fontSize: 16),
                     ),
-                   
                   ],
                 ),
                 Text(
                   'ผลลัพธ์ = $total',
                   style: TextStyle(fontFamily: 'PromptBold', fontSize: 24),
                 ),
-                Padding(
-                  padding: EdgeInsets.only(top: 10),
-                  child: RaisedButton(
-                    child: Text(
-                      'ย้อนกลับ',
-                      style: TextStyle(fontSize: 24),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    ButtonTheme(
+                      minWidth: 150,
+                      child: RaisedButton(
+                        color: Colors.black,
+                        child: GradientText("ย้อนกลับ",
+                            gradient: LinearGradient(colors: [
+                              Color(0xFFD16BA5),
+                              Color(0xFF86A8E7),
+                              Color(0xFF5FFBF1),
+                            ]),
+                            style: TextStyle(fontSize: 24),
+                            textAlign: TextAlign.center),
+                        onPressed: _cleardata,
+                      ),
                     ),
-                    onPressed: _cleardata,
-                  ),
+                    ButtonTheme(
+                      minWidth: 150,
+                      child: RaisedButton(
+                        color: Colors.black,
+                        child: GradientText("เริ่มต้นใหม่",
+                            gradient: LinearGradient(colors: [
+                              Color(0xFFD16BA5),
+                              Color(0xFF86A8E7),
+                              Color(0xFF5FFBF1),
+                            ]),
+                            style: TextStyle(fontSize: 24),
+                            textAlign: TextAlign.center),
+                        onPressed: _reset,
+                      ),
+                    )
+                  ],
                 )
               ],
             )));
@@ -1095,12 +1187,12 @@ class _Northwest4x4State extends State<Northwest4x4> {
                       '($_mattrix31*$_default31) + ($_mattrix32*$_default32) + ($_mattrix33*$_default33) + ($_mattrix34*$_default34) + ',
                       style: TextStyle(fontSize: 16),
                     ),
-                     Text(
+                    Text(
                       '($_mattrix41*$_default41) + ($_mattrix42*$_default42) + ($_mattrix43*$_default43) + ($_mattrix44*$_default44) + ',
                       style: TextStyle(fontSize: 16),
                     ),
-                      Text(
-                      '($_dumdemanda*0) + ($_dumdemandb*0) + ($_dumdemandc*0) + ($_dumdemandd*0) ',
+                    Text(
+                      '($_dumdemanda*0) + ($_dumdemandb*0) + ($_dumdemandc*0) + ($_dumdemandd*0) =',
                       style: TextStyle(fontSize: 16),
                     ),
                   ],
@@ -1109,15 +1201,40 @@ class _Northwest4x4State extends State<Northwest4x4> {
                   'ผลลัพธ์ = $total',
                   style: TextStyle(fontFamily: 'PromptBold', fontSize: 24),
                 ),
-                Padding(
-                  padding: EdgeInsets.only(top: 10),
-                  child: RaisedButton(
-                    child: Text(
-                      'ย้อนกลับ',
-                      style: TextStyle(fontSize: 24),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    ButtonTheme(
+                      minWidth: 150,
+                      child: RaisedButton(
+                        color: Colors.black,
+                        child: GradientText("ย้อนกลับ",
+                            gradient: LinearGradient(colors: [
+                              Color(0xFFD16BA5),
+                              Color(0xFF86A8E7),
+                              Color(0xFF5FFBF1),
+                            ]),
+                            style: TextStyle(fontSize: 24),
+                            textAlign: TextAlign.center),
+                        onPressed: _cleardata,
+                      ),
                     ),
-                    onPressed: _cleardata,
-                  ),
+                    ButtonTheme(
+                      minWidth: 150,
+                      child: RaisedButton(
+                        color: Colors.black,
+                        child: GradientText("เริ่มต้นใหม่",
+                            gradient: LinearGradient(colors: [
+                              Color(0xFFD16BA5),
+                              Color(0xFF86A8E7),
+                              Color(0xFF5FFBF1),
+                            ]),
+                            style: TextStyle(fontSize: 24),
+                            textAlign: TextAlign.center),
+                        onPressed: _reset,
+                      ),
+                    )
+                  ],
                 )
               ],
             )));
@@ -1139,7 +1256,7 @@ class _Northwest4x4State extends State<Northwest4x4> {
             child: Table(
                 defaultVerticalAlignment: TableCellVerticalAlignment.middle,
                 border:
-                    TableBorder.all(color: Color.fromRGBO(99, 138, 223, 1.0)),
+                    TableBorder.all(color: Colors.black),
                 children: [
                   TableRow(children: [
                     Padding(
@@ -1166,7 +1283,7 @@ class _Northwest4x4State extends State<Northwest4x4> {
                       style: TextStyle(fontFamily: 'PromptBold'),
                     ),
                     Text(
-                      'sup',
+                      'Sup',
                       textAlign: TextAlign.center,
                       style: TextStyle(fontFamily: 'PromptBold'),
                     ),
@@ -1544,512 +1661,512 @@ class _Northwest4x4State extends State<Northwest4x4> {
     } else if (_totalsupply > _totaldemand) {
       return Container(
         child: Column(
-        children: <Widget>[
-          Padding(
-            padding: EdgeInsets.only(top: 0),
-            child: Text(
-              'ตาราง',
-              style: TextStyle(fontFamily: 'PromptBold', fontSize: 24),
+          children: <Widget>[
+            Padding(
+              padding: EdgeInsets.only(top: 0),
+              child: Text(
+                'ตาราง',
+                style: TextStyle(fontFamily: 'PromptBold', fontSize: 24),
+              ),
             ),
-          ),
-          Padding(
-            padding: EdgeInsets.all(10),
-            child: Table(
-                defaultColumnWidth: FixedColumnWidth(45),
-                defaultVerticalAlignment: TableCellVerticalAlignment.middle,
-                border:
-                    TableBorder.all(color: Color.fromRGBO(99, 138, 223, 1.0)),
-                children: [
-                  TableRow(children: [
-                    Padding(
+            Padding(
+              padding: EdgeInsets.all(10),
+              child: Table(
+                  defaultColumnWidth: FixedColumnWidth(45),
+                  defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+                  border:
+                      TableBorder.all(color: Colors.black),
+                  children: [
+                    TableRow(children: [
+                      Padding(
+                          padding: EdgeInsets.only(top: 10, bottom: 10),
+                          child: Icon(Icons.star)),
+                      Text(
+                        'a',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(fontFamily: 'PromptBold'),
+                      ),
+                      Text(
+                        'b',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(fontFamily: 'PromptBold'),
+                      ),
+                      Text(
+                        'c',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(fontFamily: 'PromptBold'),
+                      ),
+                      Text(
+                        'd',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(fontFamily: 'PromptBold'),
+                      ),
+                      Text(
+                        'Dum',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(fontFamily: 'PromptBold'),
+                      ),
+                      Text(
+                        'Sup',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(fontFamily: 'PromptBold'),
+                      ),
+                    ]),
+                    TableRow(children: [
+                      Padding(
                         padding: EdgeInsets.only(top: 10, bottom: 10),
-                        child: Icon(Icons.star)),
-                    Text(
-                      'a',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(fontFamily: 'PromptBold'),
-                    ),
-                    Text(
-                      'b',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(fontFamily: 'PromptBold'),
-                    ),
-                    Text(
-                      'c',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(fontFamily: 'PromptBold'),
-                    ),
-                    Text(
-                      'd',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(fontFamily: 'PromptBold'),
-                    ),
-                    Text(
-                      'Dum',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(fontFamily: 'PromptBold'),
-                    ),
-                    Text(
-                      'sup',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(fontFamily: 'PromptBold'),
-                    ),
-                  ]),
-                  TableRow(children: [
-                    Padding(
-                      padding: EdgeInsets.only(top: 10, bottom: 10),
-                      child: Text(
-                        'A',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(fontFamily: 'PromptBold'),
+                        child: Text(
+                          'A',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontFamily: 'PromptBold'),
+                        ),
                       ),
-                    ),
-                    Column(
-                      children: <Widget>[
-                        Padding(
-                          padding: EdgeInsets.only(right: 3),
-                          child: Container(
-                            child: Align(
-                              alignment: Alignment.centerRight,
-                              child: Text(
-                                "$_default11",
-                                style: TextStyle(color: Colors.red),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Text("$_mattrix11", textAlign: TextAlign.center),
-                      ],
-                    ),
-                    Column(
-                      children: <Widget>[
-                        Padding(
-                          padding: EdgeInsets.only(right: 3),
-                          child: Container(
-                            child: Align(
-                              alignment: Alignment.centerRight,
-                              child: Text(
-                                "$_default12",
-                                style: TextStyle(color: Colors.red),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Text("$_mattrix12", textAlign: TextAlign.center),
-                      ],
-                    ),
-                    Column(
-                      children: <Widget>[
-                        Padding(
+                      Column(
+                        children: <Widget>[
+                          Padding(
                             padding: EdgeInsets.only(right: 3),
                             child: Container(
                               child: Align(
                                 alignment: Alignment.centerRight,
                                 child: Text(
-                                  "$_default13",
+                                  "$_default11",
                                   style: TextStyle(color: Colors.red),
                                 ),
                               ),
-                            )),
-                        Text("$_mattrix13", textAlign: TextAlign.center),
-                      ],
-                    ),
-                    Column(
-                      children: <Widget>[
-                        Padding(
+                            ),
+                          ),
+                          Text("$_mattrix11", textAlign: TextAlign.center),
+                        ],
+                      ),
+                      Column(
+                        children: <Widget>[
+                          Padding(
                             padding: EdgeInsets.only(right: 3),
                             child: Container(
                               child: Align(
                                 alignment: Alignment.centerRight,
                                 child: Text(
-                                  "$_default14",
+                                  "$_default12",
                                   style: TextStyle(color: Colors.red),
                                 ),
                               ),
-                            )),
-                        Text("$_mattrix14", textAlign: TextAlign.center),
-                      ],
-                    ),
-                    Column(
-                      children: <Widget>[
-                        Padding(
-                          padding: EdgeInsets.only(right: 3),
-                          child: Container(
-                            child: Align(
-                              alignment: Alignment.centerRight,
-                              child: Text(
-                                "0",
-                                style: TextStyle(color: Colors.red),
+                            ),
+                          ),
+                          Text("$_mattrix12", textAlign: TextAlign.center),
+                        ],
+                      ),
+                      Column(
+                        children: <Widget>[
+                          Padding(
+                              padding: EdgeInsets.only(right: 3),
+                              child: Container(
+                                child: Align(
+                                  alignment: Alignment.centerRight,
+                                  child: Text(
+                                    "$_default13",
+                                    style: TextStyle(color: Colors.red),
+                                  ),
+                                ),
+                              )),
+                          Text("$_mattrix13", textAlign: TextAlign.center),
+                        ],
+                      ),
+                      Column(
+                        children: <Widget>[
+                          Padding(
+                              padding: EdgeInsets.only(right: 3),
+                              child: Container(
+                                child: Align(
+                                  alignment: Alignment.centerRight,
+                                  child: Text(
+                                    "$_default14",
+                                    style: TextStyle(color: Colors.red),
+                                  ),
+                                ),
+                              )),
+                          Text("$_mattrix14", textAlign: TextAlign.center),
+                        ],
+                      ),
+                      Column(
+                        children: <Widget>[
+                          Padding(
+                            padding: EdgeInsets.only(right: 3),
+                            child: Container(
+                              child: Align(
+                                alignment: Alignment.centerRight,
+                                child: Text(
+                                  "0",
+                                  style: TextStyle(color: Colors.red),
+                                ),
                               ),
                             ),
                           ),
-                        ),
-                        Text("$_dumsupplya",
-                            style: TextStyle(fontFamily: 'PromptBold'),
-                            textAlign: TextAlign.center),
-                      ],
-                    ),
-                    Text(
-                      "$_supplya",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(fontFamily: 'PromptBold'),
-                    ),
-                  ]),
-                  TableRow(children: [
-                    Padding(
-                      padding: EdgeInsets.only(top: 10, bottom: 10),
-                      child: Text(
-                        'B',
+                          Text("$_dumsupplya",
+                              style: TextStyle(fontFamily: 'PromptBold'),
+                              textAlign: TextAlign.center),
+                        ],
+                      ),
+                      Text(
+                        "$_supplya",
                         textAlign: TextAlign.center,
                         style: TextStyle(fontFamily: 'PromptBold'),
                       ),
-                    ),
-                    Column(
-                      children: <Widget>[
-                        Padding(
-                          padding: EdgeInsets.only(right: 3),
-                          child: Container(
-                            child: Align(
-                              alignment: Alignment.centerRight,
-                              child: Text(
-                                "$_default21",
-                                style: TextStyle(color: Colors.red),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Text("$_mattrix21", textAlign: TextAlign.center),
-                      ],
-                    ),
-                    Column(
-                      children: <Widget>[
-                        Padding(
-                          padding: EdgeInsets.only(right: 3),
-                          child: Container(
-                            child: Align(
-                              alignment: Alignment.centerRight,
-                              child: Text(
-                                "$_default22",
-                                style: TextStyle(color: Colors.red),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Text("$_mattrix22", textAlign: TextAlign.center),
-                      ],
-                    ),
-                    Column(
-                      children: <Widget>[
-                        Padding(
-                          padding: EdgeInsets.only(right: 3),
-                          child: Container(
-                            child: Align(
-                              alignment: Alignment.centerRight,
-                              child: Text(
-                                "$_default23",
-                                style: TextStyle(color: Colors.red),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Text("$_mattrix23", textAlign: TextAlign.center),
-                      ],
-                    ),
-                    Column(
-                      children: <Widget>[
-                        Padding(
-                          padding: EdgeInsets.only(right: 3),
-                          child: Container(
-                            child: Align(
-                              alignment: Alignment.centerRight,
-                              child: Text(
-                                "$_default24",
-                                style: TextStyle(color: Colors.red),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Text("$_mattrix24", textAlign: TextAlign.center),
-                      ],
-                    ),
-                    Column(
-                      children: <Widget>[
-                        Padding(
-                          padding: EdgeInsets.only(right: 3),
-                          child: Container(
-                            child: Align(
-                              alignment: Alignment.centerRight,
-                              child: Text(
-                                "0",
-                                style: TextStyle(color: Colors.red),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Text("$_dumsupplyb",
-                            style: TextStyle(fontFamily: 'PromptBold'),
-                            textAlign: TextAlign.center),
-                      ],
-                    ),
-                    Text(
-                      "$_supplyb",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(fontFamily: 'PromptBold'),
-                    ),
-                  ]),
-                  TableRow(children: [
-                    Padding(
-                      padding: EdgeInsets.only(top: 10, bottom: 10),
-                      child: Text(
-                        'C',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(fontFamily: 'PromptBold'),
-                      ),
-                    ),
-                    Column(
-                      children: <Widget>[
-                        Padding(
-                          padding: EdgeInsets.only(right: 3),
-                          child: Container(
-                            child: Align(
-                              alignment: Alignment.centerRight,
-                              child: Text(
-                                "$_default31",
-                                style: TextStyle(color: Colors.red),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Text("$_mattrix31", textAlign: TextAlign.center),
-                      ],
-                    ),
-                    Column(
-                      children: <Widget>[
-                        Padding(
-                          padding: EdgeInsets.only(right: 3),
-                          child: Container(
-                            child: Align(
-                              alignment: Alignment.centerRight,
-                              child: Text(
-                                "$_default32",
-                                style: TextStyle(color: Colors.red),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Text("$_mattrix32", textAlign: TextAlign.center),
-                      ],
-                    ),
-                    Column(
-                      children: <Widget>[
-                        Padding(
-                          padding: EdgeInsets.only(right: 3),
-                          child: Container(
-                            child: Align(
-                              alignment: Alignment.centerRight,
-                              child: Text(
-                                "$_default33",
-                                style: TextStyle(color: Colors.red),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Text("$_mattrix33", textAlign: TextAlign.center),
-                      ],
-                    ),
-                    Column(
-                      children: <Widget>[
-                        Padding(
-                          padding: EdgeInsets.only(right: 3),
-                          child: Container(
-                            child: Align(
-                              alignment: Alignment.centerRight,
-                              child: Text(
-                                "$_default34",
-                                style: TextStyle(color: Colors.red),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Text("$_mattrix34", textAlign: TextAlign.center),
-                      ],
-                    ),
-                    Column(
-                      children: <Widget>[
-                        Padding(
-                          padding: EdgeInsets.only(right: 3),
-                          child: Container(
-                            child: Align(
-                              alignment: Alignment.centerRight,
-                              child: Text(
-                                "0",
-                                style: TextStyle(color: Colors.red),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Text(
-                          "$_dumsupplyc",
+                    ]),
+                    TableRow(children: [
+                      Padding(
+                        padding: EdgeInsets.only(top: 10, bottom: 10),
+                        child: Text(
+                          'B',
                           textAlign: TextAlign.center,
                           style: TextStyle(fontFamily: 'PromptBold'),
                         ),
-                      ],
-                    ),
-                    Text(
-                      "$_supplyc",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(fontFamily: 'PromptBold'),
-                    ),
-                  ]),
-                  TableRow(children: [
-                    Padding(
-                      padding: EdgeInsets.only(top: 10, bottom: 10),
-                      child: Text(
-                        'D',
+                      ),
+                      Column(
+                        children: <Widget>[
+                          Padding(
+                            padding: EdgeInsets.only(right: 3),
+                            child: Container(
+                              child: Align(
+                                alignment: Alignment.centerRight,
+                                child: Text(
+                                  "$_default21",
+                                  style: TextStyle(color: Colors.red),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Text("$_mattrix21", textAlign: TextAlign.center),
+                        ],
+                      ),
+                      Column(
+                        children: <Widget>[
+                          Padding(
+                            padding: EdgeInsets.only(right: 3),
+                            child: Container(
+                              child: Align(
+                                alignment: Alignment.centerRight,
+                                child: Text(
+                                  "$_default22",
+                                  style: TextStyle(color: Colors.red),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Text("$_mattrix22", textAlign: TextAlign.center),
+                        ],
+                      ),
+                      Column(
+                        children: <Widget>[
+                          Padding(
+                            padding: EdgeInsets.only(right: 3),
+                            child: Container(
+                              child: Align(
+                                alignment: Alignment.centerRight,
+                                child: Text(
+                                  "$_default23",
+                                  style: TextStyle(color: Colors.red),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Text("$_mattrix23", textAlign: TextAlign.center),
+                        ],
+                      ),
+                      Column(
+                        children: <Widget>[
+                          Padding(
+                            padding: EdgeInsets.only(right: 3),
+                            child: Container(
+                              child: Align(
+                                alignment: Alignment.centerRight,
+                                child: Text(
+                                  "$_default24",
+                                  style: TextStyle(color: Colors.red),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Text("$_mattrix24", textAlign: TextAlign.center),
+                        ],
+                      ),
+                      Column(
+                        children: <Widget>[
+                          Padding(
+                            padding: EdgeInsets.only(right: 3),
+                            child: Container(
+                              child: Align(
+                                alignment: Alignment.centerRight,
+                                child: Text(
+                                  "0",
+                                  style: TextStyle(color: Colors.red),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Text("$_dumsupplyb",
+                              style: TextStyle(fontFamily: 'PromptBold'),
+                              textAlign: TextAlign.center),
+                        ],
+                      ),
+                      Text(
+                        "$_supplyb",
                         textAlign: TextAlign.center,
                         style: TextStyle(fontFamily: 'PromptBold'),
                       ),
-                    ),
-                    Column(
-                      children: <Widget>[
-                        Padding(
-                          padding: EdgeInsets.only(right: 3),
-                          child: Container(
-                            child: Align(
-                              alignment: Alignment.centerRight,
-                              child: Text(
-                                "$_default41",
-                                style: TextStyle(color: Colors.red),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Text("$_mattrix41", textAlign: TextAlign.center),
-                      ],
-                    ),
-                    Column(
-                      children: <Widget>[
-                        Padding(
-                          padding: EdgeInsets.only(right: 3),
-                          child: Container(
-                            child: Align(
-                              alignment: Alignment.centerRight,
-                              child: Text(
-                                "$_default42",
-                                style: TextStyle(color: Colors.red),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Text("$_mattrix42", textAlign: TextAlign.center),
-                      ],
-                    ),
-                    Column(
-                      children: <Widget>[
-                        Padding(
-                          padding: EdgeInsets.only(right: 3),
-                          child: Container(
-                            child: Align(
-                              alignment: Alignment.centerRight,
-                              child: Text(
-                                "$_default43",
-                                style: TextStyle(color: Colors.red),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Text("$_mattrix43", textAlign: TextAlign.center),
-                      ],
-                    ),
-                    Column(
-                      children: <Widget>[
-                        Padding(
-                          padding: EdgeInsets.only(right: 3),
-                          child: Container(
-                            child: Align(
-                              alignment: Alignment.centerRight,
-                              child: Text(
-                                "$_default44",
-                                style: TextStyle(color: Colors.red),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Text("$_mattrix44", textAlign: TextAlign.center),
-                      ],
-                    ),
-                    Column(
-                      children: <Widget>[
-                        Padding(
-                          padding: EdgeInsets.only(right: 3),
-                          child: Container(
-                            child: Align(
-                              alignment: Alignment.centerRight,
-                              child: Text(
-                                "0",
-                                style: TextStyle(color: Colors.red),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Text(
-                          "$_dumsupplyd",
+                    ]),
+                    TableRow(children: [
+                      Padding(
+                        padding: EdgeInsets.only(top: 10, bottom: 10),
+                        child: Text(
+                          'C',
                           textAlign: TextAlign.center,
                           style: TextStyle(fontFamily: 'PromptBold'),
                         ),
-                      ],
-                    ),
-                    Text(
-                      "$_supplyd",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(fontFamily: 'PromptBold'),
-                    ),
-                  ]),
-                  TableRow(children: [
-                    Padding(
-                      padding: EdgeInsets.only(top: 10, bottom: 10),
-                      child: Text(
-                        'De',
+                      ),
+                      Column(
+                        children: <Widget>[
+                          Padding(
+                            padding: EdgeInsets.only(right: 3),
+                            child: Container(
+                              child: Align(
+                                alignment: Alignment.centerRight,
+                                child: Text(
+                                  "$_default31",
+                                  style: TextStyle(color: Colors.red),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Text("$_mattrix31", textAlign: TextAlign.center),
+                        ],
+                      ),
+                      Column(
+                        children: <Widget>[
+                          Padding(
+                            padding: EdgeInsets.only(right: 3),
+                            child: Container(
+                              child: Align(
+                                alignment: Alignment.centerRight,
+                                child: Text(
+                                  "$_default32",
+                                  style: TextStyle(color: Colors.red),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Text("$_mattrix32", textAlign: TextAlign.center),
+                        ],
+                      ),
+                      Column(
+                        children: <Widget>[
+                          Padding(
+                            padding: EdgeInsets.only(right: 3),
+                            child: Container(
+                              child: Align(
+                                alignment: Alignment.centerRight,
+                                child: Text(
+                                  "$_default33",
+                                  style: TextStyle(color: Colors.red),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Text("$_mattrix33", textAlign: TextAlign.center),
+                        ],
+                      ),
+                      Column(
+                        children: <Widget>[
+                          Padding(
+                            padding: EdgeInsets.only(right: 3),
+                            child: Container(
+                              child: Align(
+                                alignment: Alignment.centerRight,
+                                child: Text(
+                                  "$_default34",
+                                  style: TextStyle(color: Colors.red),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Text("$_mattrix34", textAlign: TextAlign.center),
+                        ],
+                      ),
+                      Column(
+                        children: <Widget>[
+                          Padding(
+                            padding: EdgeInsets.only(right: 3),
+                            child: Container(
+                              child: Align(
+                                alignment: Alignment.centerRight,
+                                child: Text(
+                                  "0",
+                                  style: TextStyle(color: Colors.red),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Text(
+                            "$_dumsupplyc",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(fontFamily: 'PromptBold'),
+                          ),
+                        ],
+                      ),
+                      Text(
+                        "$_supplyc",
                         textAlign: TextAlign.center,
                         style: TextStyle(fontFamily: 'PromptBold'),
                       ),
-                    ),
-                    Text(
-                      "$_demanda",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(fontFamily: 'PromptBold'),
-                    ),
-                    Text(
-                      "$_demandb",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(fontFamily: 'PromptBold'),
-                    ),
-                    Text(
-                      "$_demandc",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(fontFamily: 'PromptBold'),
-                    ),
-                    Text(
-                      "$_demandd",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(fontFamily: 'PromptBold'),
-                    ),
-                    Text(
-                      '$_dumsupplytotal',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(fontFamily: 'PromptBold'),
-                    ),
-                    Text(
-                      '$_dumsupplytotalall',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(fontFamily: 'PromptBold'),
-                    ),
+                    ]),
+                    TableRow(children: [
+                      Padding(
+                        padding: EdgeInsets.only(top: 10, bottom: 10),
+                        child: Text(
+                          'D',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontFamily: 'PromptBold'),
+                        ),
+                      ),
+                      Column(
+                        children: <Widget>[
+                          Padding(
+                            padding: EdgeInsets.only(right: 3),
+                            child: Container(
+                              child: Align(
+                                alignment: Alignment.centerRight,
+                                child: Text(
+                                  "$_default41",
+                                  style: TextStyle(color: Colors.red),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Text("$_mattrix41", textAlign: TextAlign.center),
+                        ],
+                      ),
+                      Column(
+                        children: <Widget>[
+                          Padding(
+                            padding: EdgeInsets.only(right: 3),
+                            child: Container(
+                              child: Align(
+                                alignment: Alignment.centerRight,
+                                child: Text(
+                                  "$_default42",
+                                  style: TextStyle(color: Colors.red),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Text("$_mattrix42", textAlign: TextAlign.center),
+                        ],
+                      ),
+                      Column(
+                        children: <Widget>[
+                          Padding(
+                            padding: EdgeInsets.only(right: 3),
+                            child: Container(
+                              child: Align(
+                                alignment: Alignment.centerRight,
+                                child: Text(
+                                  "$_default43",
+                                  style: TextStyle(color: Colors.red),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Text("$_mattrix43", textAlign: TextAlign.center),
+                        ],
+                      ),
+                      Column(
+                        children: <Widget>[
+                          Padding(
+                            padding: EdgeInsets.only(right: 3),
+                            child: Container(
+                              child: Align(
+                                alignment: Alignment.centerRight,
+                                child: Text(
+                                  "$_default44",
+                                  style: TextStyle(color: Colors.red),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Text("$_mattrix44", textAlign: TextAlign.center),
+                        ],
+                      ),
+                      Column(
+                        children: <Widget>[
+                          Padding(
+                            padding: EdgeInsets.only(right: 3),
+                            child: Container(
+                              child: Align(
+                                alignment: Alignment.centerRight,
+                                child: Text(
+                                  "0",
+                                  style: TextStyle(color: Colors.red),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Text(
+                            "$_dumsupplyd",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(fontFamily: 'PromptBold'),
+                          ),
+                        ],
+                      ),
+                      Text(
+                        "$_supplyd",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(fontFamily: 'PromptBold'),
+                      ),
+                    ]),
+                    TableRow(children: [
+                      Padding(
+                        padding: EdgeInsets.only(top: 10, bottom: 10),
+                        child: Text(
+                          'De',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontFamily: 'PromptBold'),
+                        ),
+                      ),
+                      Text(
+                        "$_demanda",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(fontFamily: 'PromptBold'),
+                      ),
+                      Text(
+                        "$_demandb",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(fontFamily: 'PromptBold'),
+                      ),
+                      Text(
+                        "$_demandc",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(fontFamily: 'PromptBold'),
+                      ),
+                      Text(
+                        "$_demandd",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(fontFamily: 'PromptBold'),
+                      ),
+                      Text(
+                        '$_dumsupplytotal',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(fontFamily: 'PromptBold'),
+                      ),
+                      Text(
+                        '$_dumsupplytotalall',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(fontFamily: 'PromptBold'),
+                      ),
+                    ]),
                   ]),
-                ]),
-          ),
-          isOpenTotal ? total2() : Container()
-        ],
-      ),
+            ),
+            isOpenTotal ? total2() : Container()
+          ],
+        ),
       );
     } else {
       return Column(
@@ -2066,7 +2183,7 @@ class _Northwest4x4State extends State<Northwest4x4> {
             child: Table(
                 defaultVerticalAlignment: TableCellVerticalAlignment.middle,
                 border:
-                    TableBorder.all(color: Color.fromRGBO(99, 138, 223, 1.0)),
+                    TableBorder.all(color: Colors.black),
                 children: [
                   TableRow(children: [
                     Padding(
@@ -2093,7 +2210,7 @@ class _Northwest4x4State extends State<Northwest4x4> {
                       style: TextStyle(fontFamily: 'PromptBold'),
                     ),
                     Text(
-                      'sup',
+                      'Sup',
                       textAlign: TextAlign.center,
                       style: TextStyle(fontFamily: 'PromptBold'),
                     ),

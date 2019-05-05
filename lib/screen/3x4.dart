@@ -568,7 +568,7 @@ class _Northwest3x4State extends State<Northwest3x4> {
               '2.กรอกกำลังการผลิตใส่ลงในแถว Supply',
             ),
             Text(
-              '3.กรอกราคาต่อหน่วยลงในตาราง 4x4',
+              '3.กรอกราคาต่อหน่วยลงในตาราง 3x4',
             ),
             Text(
               '4.กดปุ่ม "กดเพื่อสร้างตาราง" เพื่อดูผลลัพธ์',
@@ -605,7 +605,7 @@ class _Northwest3x4State extends State<Northwest3x4> {
                         style: TextStyle(fontFamily: 'PromptBold'),
                       ),
                       Text(
-                        'sup',
+                        'Sup',
                         textAlign: TextAlign.center,
                         style: TextStyle(fontFamily: 'PromptBold'),
                       ),
@@ -1098,7 +1098,7 @@ class _Northwest3x4State extends State<Northwest3x4> {
                       style: TextStyle(fontFamily: 'PromptBold'),
                     ),
                     Text(
-                      'sup',
+                      'Sup',
                       textAlign: TextAlign.center,
                       style: TextStyle(fontFamily: 'PromptBold'),
                     ),
@@ -1437,7 +1437,7 @@ class _Northwest3x4State extends State<Northwest3x4> {
                       style: TextStyle(fontFamily: 'PromptBold'),
                     ),
                     Text(
-                      'sup',
+                      'Sup',
                       textAlign: TextAlign.center,
                       style: TextStyle(fontFamily: 'PromptBold'),
                     ),
@@ -1834,7 +1834,7 @@ class _Northwest3x4State extends State<Northwest3x4> {
                       style: TextStyle(fontFamily: 'PromptBold'),
                     ),
                     Text(
-                      'sup',
+                      'Sup',
                       textAlign: TextAlign.center,
                       style: TextStyle(fontFamily: 'PromptBold'),
                     ),
