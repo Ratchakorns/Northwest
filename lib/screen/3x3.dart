@@ -275,7 +275,8 @@ class _Northwest3x3State extends State<Northwest3x3> {
     }
     if (_mattrix33 == 0) {
       setState(() {
-        if (_mattrix32 == 0) {
+        if (_mattrix31 + _mattrix32 == 0) {
+          //เพิ่ม
           if (demandc - (_mattrix13 + _mattrix23) > supplyc) {
             _mattrix33 = supplyc;
           } else {
