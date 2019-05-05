@@ -119,6 +119,9 @@ class _Northwest4x4State extends State<Northwest4x4> {
 
   void _reset() {
     setState(() {
+      isOpenTable = false;
+      isCloseTable = true;
+      isOpenTotal = false;
       _supplyaController.clear();
       _supplybController.clear();
       _supplycController.clear();
