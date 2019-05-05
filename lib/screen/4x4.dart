@@ -1542,7 +1542,8 @@ class _Northwest4x4State extends State<Northwest4x4> {
         ],
       );
     } else if (_totalsupply > _totaldemand) {
-      return Column(
+      return Container(
+        child: Column(
         children: <Widget>[
           Padding(
             padding: EdgeInsets.only(top: 0),
@@ -1554,6 +1555,7 @@ class _Northwest4x4State extends State<Northwest4x4> {
           Padding(
             padding: EdgeInsets.all(10),
             child: Table(
+                defaultColumnWidth: FixedColumnWidth(45),
                 defaultVerticalAlignment: TableCellVerticalAlignment.middle,
                 border:
                     TableBorder.all(color: Color.fromRGBO(99, 138, 223, 1.0)),
@@ -2047,6 +2049,7 @@ class _Northwest4x4State extends State<Northwest4x4> {
           ),
           isOpenTotal ? total2() : Container()
         ],
+      ),
       );
     } else {
       return Column(

@@ -1414,6 +1414,7 @@ class _Northwest3x4State extends State<Northwest3x4> {
           Padding(
             padding: EdgeInsets.all(10),
             child: Table(
+              defaultColumnWidth: FixedColumnWidth(45),
                 defaultVerticalAlignment: TableCellVerticalAlignment.middle,
                 border:
                     TableBorder.all(color: Color.fromRGBO(99, 138, 223, 1.0)),

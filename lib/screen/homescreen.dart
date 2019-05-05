@@ -117,7 +117,9 @@ class _MyHomePageState extends State<MyHomePage> {
                           )),
                           Card(
                               child: InkWell(
-                            onTap: () {},
+                            onTap: () {
+                              Navigator.pushNamed(context, '/3x4');
+                            },
                             child: Container(
                               child: Column(
                                 mainAxisSize: MainAxisSize.min,
@@ -136,7 +138,9 @@ class _MyHomePageState extends State<MyHomePage> {
                           )),
                           Card(
                               child: InkWell(
-                            onTap: () {},
+                            onTap: () {
+                              Navigator.pushNamed(context, '/4x4');
+                            },
                             child: Container(
                               child: Column(
                                 mainAxisSize: MainAxisSize.min,
