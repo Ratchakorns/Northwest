@@ -16,33 +16,23 @@ class _Northwest2x3State extends State<Northwest2x3> {
       _default21 = 0,
       _default22 = 0,
       _default23 = 0,
-      _default31 = 0,
-      _default32 = 0,
-      _default33 = 0,
       _total11 = 0,
       _total12 = 0,
       _total13 = 0,
       _total21 = 0,
       _total22 = 0,
       _total23 = 0,
-      _total31 = 0,
-      _total32 = 0,
-      _total33 = 0,
       _mattrix11 = 0,
       _mattrix12 = 0,
       _mattrix13 = 0,
       _mattrix21 = 0,
       _mattrix22 = 0,
       _mattrix23 = 0,
-      _mattrix31 = 0,
-      _mattrix32 = 0,
-      _mattrix33 = 0,
       total,
       _totalsupply,
       _totaldemand,
       _supplya,
       _supplyb,
-      _supplyc,
       _demanda,
       _demandb,
       _demandc,
@@ -52,14 +42,12 @@ class _Northwest2x3State extends State<Northwest2x3> {
       _dumdemandtotal,
       _dumsupplya,
       _dumsupplyb,
-      _dumsupplyc,
       _dumsupplytotal,
       _dumsupplytotalall,
       _dumdemandtotalall;
 
   TextEditingController _supplyaController = new TextEditingController();
   TextEditingController _supplybController = new TextEditingController();
-  TextEditingController _supplycController = new TextEditingController();
   TextEditingController _demandaController = new TextEditingController();
   TextEditingController _demandbController = new TextEditingController();
   TextEditingController _demandcController = new TextEditingController();
@@ -69,9 +57,6 @@ class _Northwest2x3State extends State<Northwest2x3> {
   TextEditingController _total21Controller = new TextEditingController();
   TextEditingController _total22Controller = new TextEditingController();
   TextEditingController _total23Controller = new TextEditingController();
-  TextEditingController _total31Controller = new TextEditingController();
-  TextEditingController _total32Controller = new TextEditingController();
-  TextEditingController _total33Controller = new TextEditingController();
 
   bool isOpenTable = false, isOpenTotal = false, isCloseTable = true;
   void _cleardata() {
@@ -89,7 +74,6 @@ class _Northwest2x3State extends State<Northwest2x3> {
       isOpenTotal = false;
       _supplyaController.clear();
       _supplybController.clear();
-      _supplycController.clear();
       _demandaController.clear();
       _demandbController.clear();
       _demandcController.clear();
@@ -99,9 +83,6 @@ class _Northwest2x3State extends State<Northwest2x3> {
       _total21Controller.clear();
       _total22Controller.clear();
       _total23Controller.clear();
-      _total31Controller.clear();
-      _total32Controller.clear();
-      _total33Controller.clear();
       total = null;
     });
   }
@@ -109,7 +90,6 @@ class _Northwest2x3State extends State<Northwest2x3> {
   void _incrementCounter() {
     int supplya = int.parse(_supplyaController.text);
     int supplyb = int.parse(_supplybController.text);
-    int supplyc = int.parse(_supplycController.text);
     int demanda = int.parse(_demandaController.text);
     int demandb = int.parse(_demandbController.text);
     int demandc = int.parse(_demandcController.text);
@@ -119,9 +99,6 @@ class _Northwest2x3State extends State<Northwest2x3> {
     int total21 = int.parse(_total21Controller.text);
     int total22 = int.parse(_total22Controller.text);
     int total23 = int.parse(_total23Controller.text);
-    int total31 = int.parse(_total31Controller.text);
-    int total32 = int.parse(_total32Controller.text);
-    int total33 = int.parse(_total33Controller.text);
 
     _default11 = total11;
     _default12 = total12;
@@ -129,18 +106,14 @@ class _Northwest2x3State extends State<Northwest2x3> {
     _default21 = total21;
     _default22 = total22;
     _default23 = total23;
-    _default31 = total31;
-    _default32 = total32;
-    _default33 = total33;
 
     _supplya = supplya;
     _supplyb = supplyb;
-    _supplyc = supplyc;
     _demanda = demanda;
     _demandb = demandb;
     _demandc = demandc;
 
-    _totalsupply = supplya + supplyb + supplyc;
+    _totalsupply = supplya + supplyb;
     _totaldemand = demanda + demandb + demandc;
 
     _mattrix11 = 0;
@@ -149,16 +122,12 @@ class _Northwest2x3State extends State<Northwest2x3> {
     _mattrix21 = 0;
     _mattrix22 = 0;
     _mattrix23 = 0;
-    _mattrix31 = 0;
-    _mattrix32 = 0;
-    _mattrix33 = 0;
     _dumdemanda = 0;
     _dumdemandb = 0;
     _dumdemandc = 0;
     _dumdemandtotal = 0;
     _dumsupplya = 0;
     _dumsupplyb = 0;
-    _dumsupplyc = 0;
     _dumsupplytotal = 0;
 
     if (_mattrix11 == 0) {
@@ -243,77 +212,30 @@ class _Northwest2x3State extends State<Northwest2x3> {
         }
       });
     }
-    if (_mattrix31 == 0) {
-      setState(() {
-        if (_mattrix11 + _mattrix21 == demanda) {
-          _mattrix31 = 0;
-        } else {
-          if (demanda - (_mattrix11 + _mattrix21) > supplyc) {
-            _mattrix31 = supplyc;
-          } else {
-            _mattrix31 = demanda - (_mattrix11 + _mattrix21);
-          }
-        }
-      });
-    }
-    if (_mattrix32 == 0) {
-      setState(() {
-        if (_mattrix31 == 0) {
-          if (demandb - (_mattrix12 + _mattrix22) > supplyc) {
-            _mattrix32 = supplyc;
-          } else {
-            _mattrix32 = demandb - (_mattrix12 + _mattrix22);
-          }
-        } else {
-          if (supplyc - _mattrix31 > demandb) {
-            _mattrix32 = demandb;
-          } else {
-            _mattrix32 = supplyc - _mattrix31;
-          }
-        }
-      });
-    }
-    if (_mattrix33 == 0) {
-      setState(() {
-        if (_mattrix32 == 0) {
-          if (demandc - (_mattrix13 + _mattrix23) > supplyc) {
-            _mattrix33 = supplyc;
-          } else {
-            _mattrix33 = demandc - (_mattrix13 + _mattrix23);
-          }
-        } else {
-          if (supplyc - (_mattrix31 + _mattrix32) > demandc) {
-            _mattrix33 = demandc;
-          } else {
-            _mattrix33 = supplyc - (_mattrix31 + _mattrix32);
-          }
-        }
-      });
-    }
     if (_dumdemanda == 0) {
       setState(() {
-        if (demanda == _mattrix11 + _mattrix21 + _mattrix31) {
+        if (demanda == _mattrix11 + _mattrix21) {
           _dumdemanda = 0;
         } else {
-          _dumdemanda = (demanda - (_mattrix11 + _mattrix21 + _mattrix31));
+          _dumdemanda = (demanda - (_mattrix11 + _mattrix21));
         }
       });
     }
     if (_dumdemandb == 0) {
       setState(() {
-        if (demandb == _mattrix12 + _mattrix22 + _mattrix32) {
+        if (demandb == _mattrix12 + _mattrix22) {
           _dumdemandb = 0;
         } else {
-          _dumdemandb = (demandb - (_mattrix12 + _mattrix22 + _mattrix32));
+          _dumdemandb = (demandb - (_mattrix12 + _mattrix22));
         }
       });
     }
     if (_dumdemandc == 0) {
       setState(() {
-        if (demandc == _mattrix13 + _mattrix23 + _mattrix33) {
+        if (demandc == _mattrix13 + _mattrix23) {
           _dumdemandc = 0;
         } else {
-          _dumdemandc = (demandc - (_mattrix13 + _mattrix23 + _mattrix33));
+          _dumdemandc = (demandc - (_mattrix13 + _mattrix23));
         }
       });
     }
@@ -341,18 +263,9 @@ class _Northwest2x3State extends State<Northwest2x3> {
         }
       });
     }
-    if (_dumsupplyc == 0) {
-      setState(() {
-        if (supplyc == _mattrix31 + _mattrix32 + _mattrix33) {
-          _dumsupplyc = 0;
-        } else {
-          _dumsupplyc = (supplyc - (_mattrix31 + _mattrix32 + _mattrix33));
-        }
-      });
-    }
     if (_dumsupplytotal == 0) {
       setState(() {
-        _dumsupplytotal = _dumsupplya + _dumsupplyb + _dumsupplyc;
+        _dumsupplytotal = _dumsupplya + _dumsupplyb;
         _dumsupplytotalall = _totaldemand + _dumsupplytotal;
       });
     }
@@ -363,18 +276,8 @@ class _Northwest2x3State extends State<Northwest2x3> {
     _total21 = total21 * _mattrix21;
     _total22 = total22 * _mattrix22;
     _total23 = total23 * _mattrix23;
-    _total31 = total31 * _mattrix31;
-    _total32 = total32 * _mattrix32;
-    _total33 = total33 * _mattrix33;
-    total = _total11 +
-        _total12 +
-        _total13 +
-        _total21 +
-        _total22 +
-        _total23 +
-        _total31 +
-        _total32 +
-        _total33;
+
+    total = _total11 + _total12 + _total13 + _total21 + _total22 + _total23;
 
     setState(() {
       isOpenTable = true;
@@ -408,7 +311,7 @@ class _Northwest2x3State extends State<Northwest2x3> {
               onPressed: () => Navigator.of(context).pop(),
             ),
             title: new Text(
-              "3X3",
+              "2X3",
               style: TextStyle(color: Colors.black, fontFamily: 'PromptBold'),
             ),
             centerTitle: true,
@@ -460,7 +363,7 @@ class _Northwest2x3State extends State<Northwest2x3> {
               '2.กรอกกำลังการผลิตใส่ลงในแถว Supply',
             ),
             Text(
-              '3.กรอกราคาต่อหน่วยลงในตาราง 3x3',
+              '3.กรอกราคาต่อหน่วยลงในตาราง 2x3',
             ),
             Text(
               '4.กดปุ่ม "กดเพื่อสร้างตาราง" เพื่อดูผลลัพธ์',
@@ -494,7 +397,7 @@ class _Northwest2x3State extends State<Northwest2x3> {
                         style: TextStyle(fontFamily: 'PromptBold'),
                       ),
                       Text(
-                        'supply',
+                        'Supply',
                         textAlign: TextAlign.center,
                         style: TextStyle(fontFamily: 'PromptBold'),
                       ),
@@ -595,52 +498,6 @@ class _Northwest2x3State extends State<Northwest2x3> {
                       Padding(
                         padding: EdgeInsets.only(top: 10, bottom: 10),
                         child: Text(
-                          'C',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(fontFamily: 'PromptBold'),
-                        ),
-                      ),
-                      Container(
-                        width: 100,
-                        child: TextField(
-                          cursorColor: Colors.black,
-                          controller: _total31Controller,
-                          textAlign: TextAlign.center,
-                          keyboardType: TextInputType.number,
-                        ),
-                      ),
-                      Container(
-                        width: 100,
-                        child: TextField(
-                          cursorColor: Colors.black,
-                          controller: _total32Controller,
-                          textAlign: TextAlign.center,
-                          keyboardType: TextInputType.number,
-                        ),
-                      ),
-                      Container(
-                        width: 100,
-                        child: TextField(
-                          cursorColor: Colors.black,
-                          controller: _total33Controller,
-                          textAlign: TextAlign.center,
-                          keyboardType: TextInputType.number,
-                        ),
-                      ),
-                      Container(
-                        width: 100,
-                        child: TextField(
-                          cursorColor: Colors.black,
-                          controller: _supplycController,
-                          textAlign: TextAlign.center,
-                          keyboardType: TextInputType.number,
-                        ),
-                      ),
-                    ]),
-                    TableRow(children: [
-                      Padding(
-                        padding: EdgeInsets.only(top: 10, bottom: 10),
-                        child: Text(
                           'Demand',
                           textAlign: TextAlign.center,
                           style: TextStyle(fontFamily: 'PromptBold'),
@@ -715,13 +572,9 @@ class _Northwest2x3State extends State<Northwest2x3> {
                       style: TextStyle(fontSize: 16),
                     ),
                     Text(
-                      '($_mattrix21*$_default21) + ($_mattrix22*$_default22) + ($_mattrix23*$_default23) + ',
+                      '($_mattrix21*$_default21) + ($_mattrix22*$_default22) + ($_mattrix23*$_default23) = ',
                       style: TextStyle(fontSize: 16),
                     ),
-                    Text(
-                      '($_mattrix31*$_default31) + ($_mattrix32*$_default32) + ($_mattrix33*$_default33) ',
-                      style: TextStyle(fontSize: 16),
-                    )
                   ],
                 ),
                 Text(
@@ -780,17 +633,13 @@ class _Northwest2x3State extends State<Northwest2x3> {
                 Column(
                   children: <Widget>[
                     Text(
-                      '($_mattrix11*$_default11) + ($_mattrix12*$_default12) + ($_mattrix13*$_default13) + ($_dumsupplya*0) ',
+                      '($_mattrix11*$_default11) + ($_mattrix12*$_default12) + ($_mattrix13*$_default13) + ($_dumsupplya*0) + ',
                       style: TextStyle(fontSize: 16),
                     ),
                     Text(
-                      '($_mattrix21*$_default21) + ($_mattrix22*$_default22) + ($_mattrix23*$_default23) + ($_dumsupplyb*0) ',
+                      '($_mattrix21*$_default21) + ($_mattrix22*$_default22) + ($_mattrix23*$_default23) + ($_dumsupplyb*0) = ',
                       style: TextStyle(fontSize: 16),
                     ),
-                    Text(
-                      '($_mattrix31*$_default31) + ($_mattrix32*$_default32) + ($_mattrix33*$_default33) + ($_dumsupplyc*0)',
-                      style: TextStyle(fontSize: 16),
-                    )
                   ],
                 ),
                 Text(
@@ -857,11 +706,7 @@ class _Northwest2x3State extends State<Northwest2x3> {
                       style: TextStyle(fontSize: 16),
                     ),
                     Text(
-                      '($_mattrix31*$_default31) + ($_mattrix32*$_default32) + ($_mattrix33*$_default33) + ',
-                      style: TextStyle(fontSize: 16),
-                    ),
-                    Text(
-                      '($_dumdemanda*0) + ($_dumdemandb*0) + ($_dumdemandc*0) ',
+                      '($_dumdemanda*0) + ($_dumdemandb*0) + ($_dumdemandc*0) =',
                       style: TextStyle(fontSize: 16),
                     )
                   ],
@@ -948,7 +793,7 @@ class _Northwest2x3State extends State<Northwest2x3> {
                       style: TextStyle(fontFamily: 'PromptBold'),
                     ),
                     Text(
-                      'supply',
+                      'Supply',
                       textAlign: TextAlign.center,
                       style: TextStyle(fontFamily: 'PromptBold'),
                     ),
@@ -1088,72 +933,6 @@ class _Northwest2x3State extends State<Northwest2x3> {
                     Padding(
                       padding: EdgeInsets.only(top: 10, bottom: 10),
                       child: Text(
-                        'C',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(fontFamily: 'PromptBold'),
-                      ),
-                    ),
-                    Column(
-                      children: <Widget>[
-                        Padding(
-                          padding: EdgeInsets.only(right: 3),
-                          child: Container(
-                            child: Align(
-                              alignment: Alignment.centerRight,
-                              child: Text(
-                                "$_default31",
-                                style: TextStyle(color: Color(0xFFD70000)),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Text("$_mattrix31", textAlign: TextAlign.center),
-                      ],
-                    ),
-                    Column(
-                      children: <Widget>[
-                        Padding(
-                          padding: EdgeInsets.only(right: 3),
-                          child: Container(
-                            child: Align(
-                              alignment: Alignment.centerRight,
-                              child: Text(
-                                "$_default32",
-                                style: TextStyle(color: Color(0xFFD70000)),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Text("$_mattrix32", textAlign: TextAlign.center),
-                      ],
-                    ),
-                    Column(
-                      children: <Widget>[
-                        Padding(
-                          padding: EdgeInsets.only(right: 3),
-                          child: Container(
-                            child: Align(
-                              alignment: Alignment.centerRight,
-                              child: Text(
-                                "$_default33",
-                                style: TextStyle(color: Color(0xFFD70000)),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Text("$_mattrix33", textAlign: TextAlign.center),
-                      ],
-                    ),
-                    Text(
-                      "$_supplyc",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(fontFamily: 'PromptBold'),
-                    ),
-                  ]),
-                  TableRow(children: [
-                    Padding(
-                      padding: EdgeInsets.only(top: 10, bottom: 10),
-                      child: Text(
                         'Demand',
                         textAlign: TextAlign.center,
                         style: TextStyle(fontFamily: 'PromptBold'),
@@ -1228,7 +1007,7 @@ class _Northwest2x3State extends State<Northwest2x3> {
                       style: TextStyle(fontFamily: 'PromptBold'),
                     ),
                     Text(
-                      'supply',
+                      'Supply',
                       textAlign: TextAlign.center,
                       style: TextStyle(fontFamily: 'PromptBold'),
                     ),
@@ -1406,93 +1185,6 @@ class _Northwest2x3State extends State<Northwest2x3> {
                     Padding(
                       padding: EdgeInsets.only(top: 10, bottom: 10),
                       child: Text(
-                        'C',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(fontFamily: 'PromptBold'),
-                      ),
-                    ),
-                    Column(
-                      children: <Widget>[
-                        Padding(
-                          padding: EdgeInsets.only(right: 3),
-                          child: Container(
-                            child: Align(
-                              alignment: Alignment.centerRight,
-                              child: Text(
-                                "$_default31",
-                                style: TextStyle(color: Color(0xFFD70000)),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Text("$_mattrix31", textAlign: TextAlign.center),
-                      ],
-                    ),
-                    Column(
-                      children: <Widget>[
-                        Padding(
-                          padding: EdgeInsets.only(right: 3),
-                          child: Container(
-                            child: Align(
-                              alignment: Alignment.centerRight,
-                              child: Text(
-                                "$_default32",
-                                style: TextStyle(color: Color(0xFFD70000)),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Text("$_mattrix32", textAlign: TextAlign.center),
-                      ],
-                    ),
-                    Column(
-                      children: <Widget>[
-                        Padding(
-                          padding: EdgeInsets.only(right: 3),
-                          child: Container(
-                            child: Align(
-                              alignment: Alignment.centerRight,
-                              child: Text(
-                                "$_default33",
-                                style: TextStyle(color: Color(0xFFD70000)),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Text("$_mattrix33", textAlign: TextAlign.center),
-                      ],
-                    ),
-                    Column(
-                      children: <Widget>[
-                        Padding(
-                          padding: EdgeInsets.only(right: 3),
-                          child: Container(
-                            child: Align(
-                              alignment: Alignment.centerRight,
-                              child: Text(
-                                "0",
-                                style: TextStyle(color: Color(0xFFD70000)),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Text(
-                          "$_dumsupplyc",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(fontFamily: 'PromptBold'),
-                        ),
-                      ],
-                    ),
-                    Text(
-                      "$_supplyc",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(fontFamily: 'PromptBold'),
-                    ),
-                  ]),
-                  TableRow(children: [
-                    Padding(
-                      padding: EdgeInsets.only(top: 10, bottom: 10),
-                      child: Text(
                         'Demand',
                         textAlign: TextAlign.center,
                         style: TextStyle(fontFamily: 'PromptBold'),
@@ -1567,7 +1259,7 @@ class _Northwest2x3State extends State<Northwest2x3> {
                       style: TextStyle(fontFamily: 'PromptBold'),
                     ),
                     Text(
-                      'supply',
+                      'Supply',
                       textAlign: TextAlign.center,
                       style: TextStyle(fontFamily: 'PromptBold'),
                     ),
@@ -1699,72 +1391,6 @@ class _Northwest2x3State extends State<Northwest2x3> {
                     ),
                     Text(
                       "$_supplyb",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(fontFamily: 'PromptBold'),
-                    ),
-                  ]),
-                  TableRow(children: [
-                    Padding(
-                      padding: EdgeInsets.only(top: 10, bottom: 10),
-                      child: Text(
-                        'C',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(fontFamily: 'PromptBold'),
-                      ),
-                    ),
-                    Column(
-                      children: <Widget>[
-                        Padding(
-                          padding: EdgeInsets.only(right: 3),
-                          child: Container(
-                            child: Align(
-                              alignment: Alignment.centerRight,
-                              child: Text(
-                                "$_default31",
-                                style: TextStyle(color: Color(0xFFD70000)),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Text("$_mattrix31", textAlign: TextAlign.center),
-                      ],
-                    ),
-                    Column(
-                      children: <Widget>[
-                        Padding(
-                          padding: EdgeInsets.only(right: 3),
-                          child: Container(
-                            child: Align(
-                              alignment: Alignment.centerRight,
-                              child: Text(
-                                "$_default32",
-                                style: TextStyle(color: Color(0xFFD70000)),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Text("$_mattrix32", textAlign: TextAlign.center),
-                      ],
-                    ),
-                    Column(
-                      children: <Widget>[
-                        Padding(
-                          padding: EdgeInsets.only(right: 3),
-                          child: Container(
-                            child: Align(
-                              alignment: Alignment.centerRight,
-                              child: Text(
-                                "$_default33",
-                                style: TextStyle(color: Color(0xFFD70000)),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Text("$_mattrix33", textAlign: TextAlign.center),
-                      ],
-                    ),
-                    Text(
-                      "$_supplyc",
                       textAlign: TextAlign.center,
                       style: TextStyle(fontFamily: 'PromptBold'),
                     ),
