@@ -68,7 +68,6 @@ class _Northwest3x4State extends State<Northwest3x4> {
       _dumsupplya,
       _dumsupplyb,
       _dumsupplyc,
-      _dumsupplyd,
       _dumsupplytotal,
       _dumsupplytotalall,
       _dumdemandtotalall;
@@ -200,7 +199,6 @@ class _Northwest3x4State extends State<Northwest3x4> {
     _dumsupplya = 0;
     _dumsupplyb = 0;
     _dumsupplyc = 0;
-    _dumsupplyd = 0;
     _dumsupplytotal = 0;
 
     if (_mattrix11 == 0) {
@@ -457,7 +455,7 @@ class _Northwest3x4State extends State<Northwest3x4> {
     }
     if (_dumsupplytotal == 0) {
       setState(() {
-        _dumsupplytotal = _dumsupplya + _dumsupplyb + _dumsupplyc + _dumsupplyd;
+        _dumsupplytotal = _dumsupplya + _dumsupplyb + _dumsupplyc;
         _dumsupplytotalall = _totaldemand + _dumsupplytotal;
       });
     }
@@ -585,8 +583,15 @@ class _Northwest3x4State extends State<Northwest3x4> {
                   children: [
                     TableRow(children: [
                       Padding(
-                          padding: EdgeInsets.only(top: 10, bottom: 10),
-                          child: Icon(Icons.star)),
+                        padding: EdgeInsets.only(top: 10, bottom: 10),
+                        child: Padding(
+                            padding: EdgeInsets.only(top: 10, bottom: 10),
+                            child: Text(
+                              'Data',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(fontFamily: 'PromptBold'),
+                            )),
+                      ),
                       Text(
                         'a',
                         textAlign: TextAlign.center,
@@ -1078,8 +1083,15 @@ class _Northwest3x4State extends State<Northwest3x4> {
                 children: [
                   TableRow(children: [
                     Padding(
-                        padding: EdgeInsets.only(top: 10, bottom: 10),
-                        child: Icon(Icons.star)),
+                      padding: EdgeInsets.only(top: 10, bottom: 10),
+                      child: Padding(
+                          padding: EdgeInsets.only(top: 10, bottom: 10),
+                          child: Text(
+                            'Data',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(fontFamily: 'PromptBold'),
+                          )),
+                    ),
                     Text(
                       'a',
                       textAlign: TextAlign.center,
@@ -1412,8 +1424,15 @@ class _Northwest3x4State extends State<Northwest3x4> {
                 children: [
                   TableRow(children: [
                     Padding(
-                        padding: EdgeInsets.only(top: 10, bottom: 10),
-                        child: Icon(Icons.star)),
+                      padding: EdgeInsets.only(top: 10, bottom: 10),
+                      child: Padding(
+                          padding: EdgeInsets.only(top: 10, bottom: 10),
+                          child: Text(
+                            'Data',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(fontFamily: 'PromptBold'),
+                          )),
+                    ),
                     Text(
                       'a',
                       textAlign: TextAlign.center,
@@ -1534,9 +1553,7 @@ class _Northwest3x4State extends State<Northwest3x4> {
                             ),
                           ),
                         ),
-                        Text("$_dumsupplya",
-                            style: TextStyle(fontFamily: 'PromptBold'),
-                            textAlign: TextAlign.center),
+                        Text("$_dumsupplya", textAlign: TextAlign.center),
                       ],
                     ),
                     Text(
@@ -1636,9 +1653,7 @@ class _Northwest3x4State extends State<Northwest3x4> {
                             ),
                           ),
                         ),
-                        Text("$_dumsupplyb",
-                            style: TextStyle(fontFamily: 'PromptBold'),
-                            textAlign: TextAlign.center),
+                        Text("$_dumsupplyb", textAlign: TextAlign.center),
                       ],
                     ),
                     Text(
@@ -1741,7 +1756,6 @@ class _Northwest3x4State extends State<Northwest3x4> {
                         Text(
                           "$_dumsupplyc",
                           textAlign: TextAlign.center,
-                          style: TextStyle(fontFamily: 'PromptBold'),
                         ),
                       ],
                     ),
@@ -1814,8 +1828,15 @@ class _Northwest3x4State extends State<Northwest3x4> {
                 children: [
                   TableRow(children: [
                     Padding(
-                        padding: EdgeInsets.only(top: 10, bottom: 10),
-                        child: Icon(Icons.star)),
+                      padding: EdgeInsets.only(top: 10, bottom: 10),
+                      child: Padding(
+                          padding: EdgeInsets.only(top: 10, bottom: 10),
+                          child: Text(
+                            'Data',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(fontFamily: 'PromptBold'),
+                          )),
+                    ),
                     Text(
                       'a',
                       textAlign: TextAlign.center,
@@ -2112,9 +2133,7 @@ class _Northwest3x4State extends State<Northwest3x4> {
                             ),
                           ),
                         ),
-                        Text("$_dumdemanda",
-                            style: TextStyle(fontFamily: 'PromptBold'),
-                            textAlign: TextAlign.center),
+                        Text("$_dumdemanda", textAlign: TextAlign.center),
                       ],
                     ),
                     Column(
@@ -2131,9 +2150,7 @@ class _Northwest3x4State extends State<Northwest3x4> {
                             ),
                           ),
                         ),
-                        Text("$_dumdemandb",
-                            style: TextStyle(fontFamily: 'PromptBold'),
-                            textAlign: TextAlign.center),
+                        Text("$_dumdemandb", textAlign: TextAlign.center),
                       ],
                     ),
                     Column(
@@ -2150,9 +2167,7 @@ class _Northwest3x4State extends State<Northwest3x4> {
                             ),
                           ),
                         ),
-                        Text("$_dumdemandc",
-                            style: TextStyle(fontFamily: 'PromptBold'),
-                            textAlign: TextAlign.center),
+                        Text("$_dumdemandc", textAlign: TextAlign.center),
                       ],
                     ),
                     Column(
@@ -2169,9 +2184,7 @@ class _Northwest3x4State extends State<Northwest3x4> {
                             ),
                           ),
                         ),
-                        Text("$_dumdemandd",
-                            style: TextStyle(fontFamily: 'PromptBold'),
-                            textAlign: TextAlign.center),
+                        Text("$_dumdemandd", textAlign: TextAlign.center),
                       ],
                     ),
                     Text(

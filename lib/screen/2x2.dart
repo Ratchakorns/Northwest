@@ -309,8 +309,10 @@ class _Northwest2x2State extends State<Northwest2x2> {
                     TableRow(children: [
                       Padding(
                           padding: EdgeInsets.only(top: 10, bottom: 10),
-                          child: Icon(
-                            Icons.star,
+                          child: Text(
+                            'Data',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(fontFamily: 'PromptBold'),
                           )),
                       Text(
                         'a',
@@ -672,10 +674,15 @@ class _Northwest2x2State extends State<Northwest2x2> {
                 children: [
                   TableRow(children: [
                     Padding(
-                        padding: EdgeInsets.only(top: 10, bottom: 10),
-                        child: Icon(
-                          Icons.star,
-                        )),
+                      padding: EdgeInsets.only(top: 10, bottom: 10),
+                      child: Padding(
+                          padding: EdgeInsets.only(top: 10, bottom: 10),
+                          child: Text(
+                            'Data',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(fontFamily: 'PromptBold'),
+                          )),
+                    ),
                     Text(
                       'a',
                       textAlign: TextAlign.center,
@@ -838,10 +845,15 @@ class _Northwest2x2State extends State<Northwest2x2> {
                 children: [
                   TableRow(children: [
                     Padding(
-                        padding: EdgeInsets.only(top: 10, bottom: 10),
-                        child: Icon(
-                          Icons.star,
-                        )),
+                      padding: EdgeInsets.only(top: 10, bottom: 10),
+                      child: Padding(
+                          padding: EdgeInsets.only(top: 10, bottom: 10),
+                          child: Text(
+                            'Data',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(fontFamily: 'PromptBold'),
+                          )),
+                    ),
                     Text(
                       'a',
                       textAlign: TextAlign.center,
@@ -920,9 +932,7 @@ class _Northwest2x2State extends State<Northwest2x2> {
                             ),
                           ),
                         ),
-                        Text("$_dumsupplya",
-                            style: TextStyle(fontFamily: 'PromptBold'),
-                            textAlign: TextAlign.center),
+                        Text("$_dumsupplya", textAlign: TextAlign.center),
                       ],
                     ),
                     Text(
@@ -988,9 +998,7 @@ class _Northwest2x2State extends State<Northwest2x2> {
                             ),
                           ),
                         ),
-                        Text("$_dumsupplyb",
-                            style: TextStyle(fontFamily: 'PromptBold'),
-                            textAlign: TextAlign.center),
+                        Text("$_dumsupplyb", textAlign: TextAlign.center),
                       ],
                     ),
                     Text(
@@ -1052,10 +1060,15 @@ class _Northwest2x2State extends State<Northwest2x2> {
                 children: [
                   TableRow(children: [
                     Padding(
-                        padding: EdgeInsets.only(top: 10, bottom: 10),
-                        child: Icon(
-                          Icons.star,
-                        )),
+                      padding: EdgeInsets.only(top: 10, bottom: 10),
+                      child: Padding(
+                          padding: EdgeInsets.only(top: 10, bottom: 10),
+                          child: Text(
+                            'Data',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(fontFamily: 'PromptBold'),
+                          )),
+                    ),
                     Text(
                       'a',
                       textAlign: TextAlign.center,
@@ -1193,9 +1206,7 @@ class _Northwest2x2State extends State<Northwest2x2> {
                             ),
                           ),
                         ),
-                        Text("$_dumdemanda",
-                            style: TextStyle(fontFamily: 'PromptBold'),
-                            textAlign: TextAlign.center),
+                        Text("$_dumdemanda", textAlign: TextAlign.center),
                       ],
                     ),
                     Column(
@@ -1212,9 +1223,7 @@ class _Northwest2x2State extends State<Northwest2x2> {
                             ),
                           ),
                         ),
-                        Text("$_dumdemandb",
-                            style: TextStyle(fontFamily: 'PromptBold'),
-                            textAlign: TextAlign.center),
+                        Text("$_dumdemandb", textAlign: TextAlign.center),
                       ],
                     ),
                     Text(
