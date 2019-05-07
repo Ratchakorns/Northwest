@@ -5,6 +5,7 @@ import 'package:northwest/screen/3x3.dart';
 import 'package:northwest/screen/3x4.dart';
 import 'package:northwest/screen/4x4.dart';
 import 'package:northwest/screen/homescreen.dart';
+import 'package:northwest/screen/provider.dart';
 
 void main() => runApp(MyApp());
 
@@ -19,6 +20,7 @@ class MyApp extends StatelessWidget {
       ),
       home: MyHomePage(),
       routes: {
+        '/provider': (BuildContext context) => Provider(title: 'NorthWest'),
         '/2x2': (BuildContext context) => Northwest2x2(title: 'NorthWest'),
         '/2x3': (BuildContext context) => Northwest2x3(title: 'NorthWest'),
         '/3x3': (BuildContext context) => Northwest3x3(title: 'NorthWest'),

@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:gradient_text/gradient_text.dart';
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+class Provider extends StatefulWidget {
+  Provider({Key key, this.title}) : super(key: key);
   final String title;
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _ProviderState createState() => _ProviderState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _ProviderState extends State<Provider> {
   @override
   Widget build(BuildContext context) {
     return Stack(children: <Widget>[
@@ -34,9 +34,8 @@ class _MyHomePageState extends State<MyHomePage> {
           backgroundColor: Colors.transparent,
           body: Center(
               child: Container(
-            child: SingleChildScrollView(
-              child: Container(
-                  child: Padding(
+            child: SingleChildScrollView(child: Container(
+              child: Padding(
                       padding: EdgeInsets.only(
                           left: 30, right: 30, bottom: 20, top: 40),
                       child: Column(
@@ -161,29 +160,9 @@ class _MyHomePageState extends State<MyHomePage> {
                               ),
                             ),
                           )),
-                          Card(
-                              child: InkWell(
-                            onTap: () {
-                              Navigator.pushNamed(context, '/provider');
-                            },
-                            child: Container(
-                              child: Column(
-                                mainAxisSize: MainAxisSize.min,
-                                children: <Widget>[
-                                  const ListTile(
-                                    title: Text(
-                                      'ผู้จัดทำ',
-                                      style: TextStyle(fontSize: 24),
-                                    ),
-                                    subtitle: Text('Comsci BSRU 32'),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          )),
                         ],
-                      ))),
-            ),
+                      ))
+            )),
           ))),
     ]);
   }
